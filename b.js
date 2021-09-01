@@ -14,7 +14,6 @@ var mediu=false;
 var har=false;
 
 
-
 var inputs=document.getElementsByTagName('input');
 for(i=0;i<inputs.length;i++){
     inputs[i].disabled=false;
@@ -132,7 +131,7 @@ function initImgs(){
 
 //position initial images randomly
 document.getElementById('saveForm1').style.marginLeft= randomX();
-document.getElementById('saveForm1').style.marginLeft= randomY();
+document.getElementById('saveForm1').style.marginTop= randomY();
 document.getElementById('saveForm2').style.marginTop= randomY();
 document.getElementById('saveForm2').style.marginLeft= randomX();
 document.getElementById('saveForm3').style.marginTop= randomY();
@@ -239,7 +238,7 @@ console.log(numBugs);
 function happen1(){
 
 document.getElementById('saveForm6').style.marginTop= randomY();
-document.getElementById('saveForm6').style.marginLeft= randomY();
+document.getElementById('saveForm6').style.marginLeft= randomX();
 document.getElementById('saveForm7').style.marginLeft= randomX();
 document.getElementById('saveForm7').style.marginTop= randomY();
 document.getElementById('saveForm8').style.marginLeft= randomX();
@@ -250,7 +249,7 @@ document.getElementById('saveForm10').style.marginLeft= randomX();
 document.getElementById('saveForm10').style.marginTop= randomY();
 
 document.getElementById('saveForm11').style.marginTop= randomY();
-document.getElementById('saveForm11').style.marginLeft= randomY();
+document.getElementById('saveForm11').style.marginLeft= randomX();
 document.getElementById('saveForm12').style.marginLeft= randomX();
 document.getElementById('saveForm12').style.marginTop= randomY();
 document.getElementById('saveForm13').style.marginLeft= randomX();
@@ -334,7 +333,7 @@ for(i=0;i<inputs.length;i++){
 function happen2(){
 
 document.getElementById('saveForm16').style.marginTop= randomY();
-document.getElementById('saveForm16').style.marginLeft= randomY();
+document.getElementById('saveForm16').style.marginLeft= randomX();
 document.getElementById('saveForm17').style.marginLeft= randomX();
 document.getElementById('saveForm17').style.marginTop= randomY();
 document.getElementById('saveForm18').style.marginLeft= randomX();
@@ -500,7 +499,7 @@ for(i=0;i<inputs.length;i++){
 function happen4(){
 
 document.getElementById('saveForm36').style.marginTop= randomY();
-document.getElementById('saveForm36').style.marginLeft= randomY();
+document.getElementById('saveForm36').style.marginLeft= randomX();
 document.getElementById('saveForm37').style.marginLeft= randomX();
 document.getElementById('saveForm37').style.marginTop= randomY();
 document.getElementById('saveForm38').style.marginLeft= randomX();
@@ -1049,41 +1048,6 @@ function doThing44(){
 
 function doThing45(){
    document.getElementById('saveForm45').style.display='none';
-   numBugs--;
-   console.log(numBugs);
-   document.getElementById("file").value -= 3;
-}
-
-function doThing46(){
-   document.getElementById('saveForm46').style.display='none';
-   numBugs--;
-   console.log(numBugs);
-   document.getElementById("file").value -= 3;
-}
-
-function doThing47(){
-   document.getElementById('saveForm47').style.display='none';
-   numBugs--;
-   console.log(numBugs);
-   document.getElementById("file").value -= 2;
-}
-
-function doThing48(){
-   document.getElementById('saveForm48').style.display='none';
-   numBugs--;
-   console.log(numBugs);
-   document.getElementById("file").value -= 3;
-}
-
-function doThing49(){
-   document.getElementById('saveForm49').style.display='none';
-   numBugs--;
-   console.log(numBugs);
-   document.getElementById("file").value -= 2;
-}
-
-function doThing50(){
-   document.getElementById('saveForm50').style.display='none';
    numBugs--;
    console.log(numBugs);
    document.getElementById("file").value -= 3;

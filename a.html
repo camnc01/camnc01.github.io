@@ -1,0 +1,273 @@
+<!DOCTYPE html PUBLIC >
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="c.css" rel="stylesheet" type="text/css"/>
+    <title>The Lanternfly Game</title>
+</head>
+<body>
+
+<div id="prepare">
+<canvas id="canvas" class="outer"></canvas>
+
+  <div class="inner" id="easy"><button class='button' type="button" onClick="easy()" >Easy</button> </div>
+  <div class="inner" id="medium"><button class='button' type="button" onClick="medium()">Medium</button></div>
+  <div class="inner" id="hard"><button class='button' type="button" onClick="hard()">Hard</button></div>
+
+<div id="welcome">
+    <h1 style= "color:MediumSeaGreen;font-size:80px">Lanternfly Game</h1>
+    <h2>Stop the spread of the lanternflies by clicking on them!</h2>
+    <h3 id="startBut" style="color: Gray">Click a Button to Begin</h3>
+  </div>
+
+</div>
+
+<script src="b.js" type="text/javascript"></script>
+
+
+
+<div id="contain">
+    <div id="divlose1"></div>
+<div id="divlose2"></div>
+
+
+<div id="prog">
+  <label for="file"> Lanternfly abundance:</label>
+<progress id="file" value="20" max="100"> 50% </progress>
+</div>
+
+<div>
+        <img src='https://lh3.googleusercontent.com/pw/AM-JKLUK-ObkFU5qbsyMdhIyLukuiRLG_gWbP-onLW0ghCXizQ0YlujvLpHGq0L9bGCosUAxRpu4kv65Qj2ZG0SBGq2LrFOviR6DZ68No-FXDECf3-7yLeaE_BDo20FC_wASnyoKsePPCKAegtmE50KRnFo=w577-h433-no?authuser=0'
+       name="bigBug" id="bigBug"/>
+</div>
+    <div>
+    <input src='https://lh3.googleusercontent.com/pw/AM-JKLUK-ObkFU5qbsyMdhIyLukuiRLG_gWbP-onLW0ghCXizQ0YlujvLpHGq0L9bGCosUAxRpu4kv65Qj2ZG0SBGq2LrFOviR6DZ68No-FXDECf3-7yLeaE_BDo20FC_wASnyoKsePPCKAegtmE50KRnFo=w577-h433-no?authuser=0'
+      type="image" name="saveForm" id="saveForm1" onclick="doThing1()"/>
+</div>
+
+        <div>
+    <input src='https://lh3.googleusercontent.com/pw/AM-JKLUK-ObkFU5qbsyMdhIyLukuiRLG_gWbP-onLW0ghCXizQ0YlujvLpHGq0L9bGCosUAxRpu4kv65Qj2ZG0SBGq2LrFOviR6DZ68No-FXDECf3-7yLeaE_BDo20FC_wASnyoKsePPCKAegtmE50KRnFo=w577-h433-no?authuser=0'
+       type="image" name="saveForm" id="saveForm2" onclick="doThing2()"/>
+</div>
+
+            <div>
+    <input src='https://lh3.googleusercontent.com/pw/AM-JKLUK-ObkFU5qbsyMdhIyLukuiRLG_gWbP-onLW0ghCXizQ0YlujvLpHGq0L9bGCosUAxRpu4kv65Qj2ZG0SBGq2LrFOviR6DZ68No-FXDECf3-7yLeaE_BDo20FC_wASnyoKsePPCKAegtmE50KRnFo=w577-h433-no?authuser=0'
+       type="image" name="saveForm" id="saveForm3" onclick="doThing3()"/>
+</div>
+
+            <div>
+    <input src='https://lh3.googleusercontent.com/pw/AM-JKLUK-ObkFU5qbsyMdhIyLukuiRLG_gWbP-onLW0ghCXizQ0YlujvLpHGq0L9bGCosUAxRpu4kv65Qj2ZG0SBGq2LrFOviR6DZ68No-FXDECf3-7yLeaE_BDo20FC_wASnyoKsePPCKAegtmE50KRnFo=w577-h433-no?authuser=0'
+       type="image" name="saveForm" id="saveForm4" onclick="doThing4()"/>
+</div>
+
+            <div>
+    <input src='https://lh3.googleusercontent.com/pw/AM-JKLUK-ObkFU5qbsyMdhIyLukuiRLG_gWbP-onLW0ghCXizQ0YlujvLpHGq0L9bGCosUAxRpu4kv65Qj2ZG0SBGq2LrFOviR6DZ68No-FXDECf3-7yLeaE_BDo20FC_wASnyoKsePPCKAegtmE50KRnFo=w577-h433-no?authuser=0'
+       type="image" name="saveForm" id="saveForm5" onclick="doThing5()"/>
+</div>
+
+    <div>
+    <input src='https://lh3.googleusercontent.com/pw/AM-JKLUK-ObkFU5qbsyMdhIyLukuiRLG_gWbP-onLW0ghCXizQ0YlujvLpHGq0L9bGCosUAxRpu4kv65Qj2ZG0SBGq2LrFOviR6DZ68No-FXDECf3-7yLeaE_BDo20FC_wASnyoKsePPCKAegtmE50KRnFo=w577-h433-no?authuser=0'
+      type="image" name="saveForm" id="saveForm6" onclick="doThing6()"/>
+</div>
+
+        <div>
+    <input src='https://lh3.googleusercontent.com/pw/AM-JKLUK-ObkFU5qbsyMdhIyLukuiRLG_gWbP-onLW0ghCXizQ0YlujvLpHGq0L9bGCosUAxRpu4kv65Qj2ZG0SBGq2LrFOviR6DZ68No-FXDECf3-7yLeaE_BDo20FC_wASnyoKsePPCKAegtmE50KRnFo=w577-h433-no?authuser=0'
+       type="image" name="saveForm" id="saveForm7" onclick="doThing7()"/>
+</div>
+
+            <div>
+    <input src='https://lh3.googleusercontent.com/pw/AM-JKLUK-ObkFU5qbsyMdhIyLukuiRLG_gWbP-onLW0ghCXizQ0YlujvLpHGq0L9bGCosUAxRpu4kv65Qj2ZG0SBGq2LrFOviR6DZ68No-FXDECf3-7yLeaE_BDo20FC_wASnyoKsePPCKAegtmE50KRnFo=w577-h433-no?authuser=0'
+       type="image" name="saveForm" id="saveForm8" onclick="doThing8()"/>
+</div>
+
+            <div>
+    <input src='https://lh3.googleusercontent.com/pw/AM-JKLUK-ObkFU5qbsyMdhIyLukuiRLG_gWbP-onLW0ghCXizQ0YlujvLpHGq0L9bGCosUAxRpu4kv65Qj2ZG0SBGq2LrFOviR6DZ68No-FXDECf3-7yLeaE_BDo20FC_wASnyoKsePPCKAegtmE50KRnFo=w577-h433-no?authuser=0'
+       type="image" name="saveForm" id="saveForm9" onclick="doThing9()"/>
+</div>
+
+            <div>
+    <input src='https://lh3.googleusercontent.com/pw/AM-JKLUK-ObkFU5qbsyMdhIyLukuiRLG_gWbP-onLW0ghCXizQ0YlujvLpHGq0L9bGCosUAxRpu4kv65Qj2ZG0SBGq2LrFOviR6DZ68No-FXDECf3-7yLeaE_BDo20FC_wASnyoKsePPCKAegtmE50KRnFo=w577-h433-no?authuser=0'
+       type="image" name="saveForm" id="saveForm10" onclick="doThing10()"/>
+</div>
+
+            <div>
+    <input src='https://lh3.googleusercontent.com/pw/AM-JKLUK-ObkFU5qbsyMdhIyLukuiRLG_gWbP-onLW0ghCXizQ0YlujvLpHGq0L9bGCosUAxRpu4kv65Qj2ZG0SBGq2LrFOviR6DZ68No-FXDECf3-7yLeaE_BDo20FC_wASnyoKsePPCKAegtmE50KRnFo=w577-h433-no?authuser=0'
+       type="image" name="saveForm" id="saveForm11" onclick="doThing11()"/>
+</div>
+
+        <div>
+    <input src='https://lh3.googleusercontent.com/pw/AM-JKLUK-ObkFU5qbsyMdhIyLukuiRLG_gWbP-onLW0ghCXizQ0YlujvLpHGq0L9bGCosUAxRpu4kv65Qj2ZG0SBGq2LrFOviR6DZ68No-FXDECf3-7yLeaE_BDo20FC_wASnyoKsePPCKAegtmE50KRnFo=w577-h433-no?authuser=0'
+       type="image" name="saveForm" id="saveForm12" onclick="doThing12()"/>
+</div>
+
+            <div>
+    <input src='https://lh3.googleusercontent.com/pw/AM-JKLUK-ObkFU5qbsyMdhIyLukuiRLG_gWbP-onLW0ghCXizQ0YlujvLpHGq0L9bGCosUAxRpu4kv65Qj2ZG0SBGq2LrFOviR6DZ68No-FXDECf3-7yLeaE_BDo20FC_wASnyoKsePPCKAegtmE50KRnFo=w577-h433-no?authuser=0'
+      type="image" name="saveForm" id="saveForm13" onclick="doThing13()"/>
+</div>
+
+
+            <div>
+    <input src='https://lh3.googleusercontent.com/pw/AM-JKLUK-ObkFU5qbsyMdhIyLukuiRLG_gWbP-onLW0ghCXizQ0YlujvLpHGq0L9bGCosUAxRpu4kv65Qj2ZG0SBGq2LrFOviR6DZ68No-FXDECf3-7yLeaE_BDo20FC_wASnyoKsePPCKAegtmE50KRnFo=w577-h433-no?authuser=0'
+      type="image" name="saveForm" id="saveForm14" onclick="doThing14()"/>
+</div>
+
+            <div>
+    <input src='https://lh3.googleusercontent.com/pw/AM-JKLUK-ObkFU5qbsyMdhIyLukuiRLG_gWbP-onLW0ghCXizQ0YlujvLpHGq0L9bGCosUAxRpu4kv65Qj2ZG0SBGq2LrFOviR6DZ68No-FXDECf3-7yLeaE_BDo20FC_wASnyoKsePPCKAegtmE50KRnFo=w577-h433-no?authuser=0'
+      type="image" name="saveForm" id="saveForm15" onclick="doThing15()"/>
+</div>
+
+    <div>
+    <input src='https://lh3.googleusercontent.com/pw/AM-JKLUK-ObkFU5qbsyMdhIyLukuiRLG_gWbP-onLW0ghCXizQ0YlujvLpHGq0L9bGCosUAxRpu4kv65Qj2ZG0SBGq2LrFOviR6DZ68No-FXDECf3-7yLeaE_BDo20FC_wASnyoKsePPCKAegtmE50KRnFo=w577-h433-no?authuser=0'
+      type="image" name="saveForm" id="saveForm16" onclick="doThing16()"/>
+</div>
+
+        <div>
+    <input src='https://lh3.googleusercontent.com/pw/AM-JKLUK-ObkFU5qbsyMdhIyLukuiRLG_gWbP-onLW0ghCXizQ0YlujvLpHGq0L9bGCosUAxRpu4kv65Qj2ZG0SBGq2LrFOviR6DZ68No-FXDECf3-7yLeaE_BDo20FC_wASnyoKsePPCKAegtmE50KRnFo=w577-h433-no?authuser=0'
+       type="image" name="saveForm" id="saveForm17" onclick="doThing17()"/>
+</div>
+
+            <div>
+    <input src='https://lh3.googleusercontent.com/pw/AM-JKLUK-ObkFU5qbsyMdhIyLukuiRLG_gWbP-onLW0ghCXizQ0YlujvLpHGq0L9bGCosUAxRpu4kv65Qj2ZG0SBGq2LrFOviR6DZ68No-FXDECf3-7yLeaE_BDo20FC_wASnyoKsePPCKAegtmE50KRnFo=w577-h433-no?authuser=0'
+       type="image" name="saveForm" id="saveForm18" onclick="doThing18()"/>
+</div>
+
+            <div>
+    <input src='https://lh3.googleusercontent.com/pw/AM-JKLUK-ObkFU5qbsyMdhIyLukuiRLG_gWbP-onLW0ghCXizQ0YlujvLpHGq0L9bGCosUAxRpu4kv65Qj2ZG0SBGq2LrFOviR6DZ68No-FXDECf3-7yLeaE_BDo20FC_wASnyoKsePPCKAegtmE50KRnFo=w577-h433-no?authuser=0'
+       type="image" name="saveForm" id="saveForm19" onclick="doThing19()"/>
+</div>
+
+            <div>
+    <input src='https://lh3.googleusercontent.com/pw/AM-JKLUK-ObkFU5qbsyMdhIyLukuiRLG_gWbP-onLW0ghCXizQ0YlujvLpHGq0L9bGCosUAxRpu4kv65Qj2ZG0SBGq2LrFOviR6DZ68No-FXDECf3-7yLeaE_BDo20FC_wASnyoKsePPCKAegtmE50KRnFo=w577-h433-no?authuser=0'
+       type="image" name="saveForm" id="saveForm20" onclick="doThing20()"/>
+</div>
+
+   <div>
+    <input src='https://lh3.googleusercontent.com/pw/AM-JKLUK-ObkFU5qbsyMdhIyLukuiRLG_gWbP-onLW0ghCXizQ0YlujvLpHGq0L9bGCosUAxRpu4kv65Qj2ZG0SBGq2LrFOviR6DZ68No-FXDECf3-7yLeaE_BDo20FC_wASnyoKsePPCKAegtmE50KRnFo=w577-h433-no?authuser=0'
+      type="image" name="saveForm" id="saveForm21" onclick="doThing21()"/>
+
+</div>
+        <div>
+    <input src='https://lh3.googleusercontent.com/pw/AM-JKLUK-ObkFU5qbsyMdhIyLukuiRLG_gWbP-onLW0ghCXizQ0YlujvLpHGq0L9bGCosUAxRpu4kv65Qj2ZG0SBGq2LrFOviR6DZ68No-FXDECf3-7yLeaE_BDo20FC_wASnyoKsePPCKAegtmE50KRnFo=w577-h433-no?authuser=0'
+           type="image" name="saveForm" id="saveForm22" onclick="doThing22()"/>
+</div>
+
+            <div>
+    <input src='https://lh3.googleusercontent.com/pw/AM-JKLUK-ObkFU5qbsyMdhIyLukuiRLG_gWbP-onLW0ghCXizQ0YlujvLpHGq0L9bGCosUAxRpu4kv65Qj2ZG0SBGq2LrFOviR6DZ68No-FXDECf3-7yLeaE_BDo20FC_wASnyoKsePPCKAegtmE50KRnFo=w577-h433-no?authuser=0'
+      type="image" name="saveForm" id="saveForm23" onclick="doThing23()"/>
+</div>
+
+            <div>
+    <input src='https://lh3.googleusercontent.com/pw/AM-JKLUK-ObkFU5qbsyMdhIyLukuiRLG_gWbP-onLW0ghCXizQ0YlujvLpHGq0L9bGCosUAxRpu4kv65Qj2ZG0SBGq2LrFOviR6DZ68No-FXDECf3-7yLeaE_BDo20FC_wASnyoKsePPCKAegtmE50KRnFo=w577-h433-no?authuser=0'
+      type="image" name="saveForm" id="saveForm24" onclick="doThing24()"/>
+</div>
+
+            <div>
+    <input src='https://lh3.googleusercontent.com/pw/AM-JKLUK-ObkFU5qbsyMdhIyLukuiRLG_gWbP-onLW0ghCXizQ0YlujvLpHGq0L9bGCosUAxRpu4kv65Qj2ZG0SBGq2LrFOviR6DZ68No-FXDECf3-7yLeaE_BDo20FC_wASnyoKsePPCKAegtmE50KRnFo=w577-h433-no?authuser=0'
+      type="image" name="saveForm" id="saveForm25" onclick="doThing25()"/>
+</div>
+
+    <div>
+    <input src='https://lh3.googleusercontent.com/pw/AM-JKLUK-ObkFU5qbsyMdhIyLukuiRLG_gWbP-onLW0ghCXizQ0YlujvLpHGq0L9bGCosUAxRpu4kv65Qj2ZG0SBGq2LrFOviR6DZ68No-FXDECf3-7yLeaE_BDo20FC_wASnyoKsePPCKAegtmE50KRnFo=w577-h433-no?authuser=0'
+      type="image" name="saveForm" id="saveForm26" onclick="doThing26()"/>
+</div>
+
+        <div>
+    <input src='https://lh3.googleusercontent.com/pw/AM-JKLUK-ObkFU5qbsyMdhIyLukuiRLG_gWbP-onLW0ghCXizQ0YlujvLpHGq0L9bGCosUAxRpu4kv65Qj2ZG0SBGq2LrFOviR6DZ68No-FXDECf3-7yLeaE_BDo20FC_wASnyoKsePPCKAegtmE50KRnFo=w577-h433-no?authuser=0'
+       type="image" name="saveForm" id="saveForm27" onclick="doThing27()"/>
+</div>
+
+            <div>
+    <input src='https://lh3.googleusercontent.com/pw/AM-JKLUK-ObkFU5qbsyMdhIyLukuiRLG_gWbP-onLW0ghCXizQ0YlujvLpHGq0L9bGCosUAxRpu4kv65Qj2ZG0SBGq2LrFOviR6DZ68No-FXDECf3-7yLeaE_BDo20FC_wASnyoKsePPCKAegtmE50KRnFo=w577-h433-no?authuser=0'
+       type="image" name="saveForm" id="saveForm28" onclick="doThing28()"/>
+</div>
+
+            <div>
+    <input src='https://lh3.googleusercontent.com/pw/AM-JKLUK-ObkFU5qbsyMdhIyLukuiRLG_gWbP-onLW0ghCXizQ0YlujvLpHGq0L9bGCosUAxRpu4kv65Qj2ZG0SBGq2LrFOviR6DZ68No-FXDECf3-7yLeaE_BDo20FC_wASnyoKsePPCKAegtmE50KRnFo=w577-h433-no?authuser=0'
+       type="image" name="saveForm" id="saveForm29" onclick="doThing29()"/>
+</div>
+
+            <div>
+    <input src='https://lh3.googleusercontent.com/pw/AM-JKLUK-ObkFU5qbsyMdhIyLukuiRLG_gWbP-onLW0ghCXizQ0YlujvLpHGq0L9bGCosUAxRpu4kv65Qj2ZG0SBGq2LrFOviR6DZ68No-FXDECf3-7yLeaE_BDo20FC_wASnyoKsePPCKAegtmE50KRnFo=w577-h433-no?authuser=0'
+       type="image" name="saveForm" id="saveForm30" onclick="doThing30()"/>
+</div>
+
+            <div>
+    <input src='https://lh3.googleusercontent.com/pw/AM-JKLUK-ObkFU5qbsyMdhIyLukuiRLG_gWbP-onLW0ghCXizQ0YlujvLpHGq0L9bGCosUAxRpu4kv65Qj2ZG0SBGq2LrFOviR6DZ68No-FXDECf3-7yLeaE_BDo20FC_wASnyoKsePPCKAegtmE50KRnFo=w577-h433-no?authuser=0'
+       type="image" name="saveForm" id="saveForm31" onclick="doThing31()"/>
+</div>
+
+        <div>
+    <input src='https://lh3.googleusercontent.com/pw/AM-JKLUK-ObkFU5qbsyMdhIyLukuiRLG_gWbP-onLW0ghCXizQ0YlujvLpHGq0L9bGCosUAxRpu4kv65Qj2ZG0SBGq2LrFOviR6DZ68No-FXDECf3-7yLeaE_BDo20FC_wASnyoKsePPCKAegtmE50KRnFo=w577-h433-no?authuser=0'
+       type="image" name="saveForm" id="saveForm32" onclick="doThing32()"/>
+</div>
+
+            <div>
+    <input src='https://lh3.googleusercontent.com/pw/AM-JKLUK-ObkFU5qbsyMdhIyLukuiRLG_gWbP-onLW0ghCXizQ0YlujvLpHGq0L9bGCosUAxRpu4kv65Qj2ZG0SBGq2LrFOviR6DZ68No-FXDECf3-7yLeaE_BDo20FC_wASnyoKsePPCKAegtmE50KRnFo=w577-h433-no?authuser=0'
+      type="image" name="saveForm" id="saveForm33" onclick="doThing33()"/>
+</div>
+
+            <div>
+    <input src='https://lh3.googleusercontent.com/pw/AM-JKLUK-ObkFU5qbsyMdhIyLukuiRLG_gWbP-onLW0ghCXizQ0YlujvLpHGq0L9bGCosUAxRpu4kv65Qj2ZG0SBGq2LrFOviR6DZ68No-FXDECf3-7yLeaE_BDo20FC_wASnyoKsePPCKAegtmE50KRnFo=w577-h433-no?authuser=0'
+      type="image" name="saveForm" id="saveForm34" onclick="doThing34()"/>
+</div>
+
+            <div>
+    <input src='https://lh3.googleusercontent.com/pw/AM-JKLUK-ObkFU5qbsyMdhIyLukuiRLG_gWbP-onLW0ghCXizQ0YlujvLpHGq0L9bGCosUAxRpu4kv65Qj2ZG0SBGq2LrFOviR6DZ68No-FXDECf3-7yLeaE_BDo20FC_wASnyoKsePPCKAegtmE50KRnFo=w577-h433-no?authuser=0'
+      type="image" name="saveForm" id="saveForm35" onclick="doThing35()"/>
+</div>
+
+    <div>
+    <input src='https://lh3.googleusercontent.com/pw/AM-JKLUK-ObkFU5qbsyMdhIyLukuiRLG_gWbP-onLW0ghCXizQ0YlujvLpHGq0L9bGCosUAxRpu4kv65Qj2ZG0SBGq2LrFOviR6DZ68No-FXDECf3-7yLeaE_BDo20FC_wASnyoKsePPCKAegtmE50KRnFo=w577-h433-no?authuser=0'
+      type="image" name="saveForm" id="saveForm36" onclick="doThing36()"/>
+</div>
+
+        <div>
+    <input src='https://lh3.googleusercontent.com/pw/AM-JKLUK-ObkFU5qbsyMdhIyLukuiRLG_gWbP-onLW0ghCXizQ0YlujvLpHGq0L9bGCosUAxRpu4kv65Qj2ZG0SBGq2LrFOviR6DZ68No-FXDECf3-7yLeaE_BDo20FC_wASnyoKsePPCKAegtmE50KRnFo=w577-h433-no?authuser=0'
+       type="image" name="saveForm" id="saveForm37" onclick="doThing37()"/>
+</div>
+
+            <div>
+    <input src='https://lh3.googleusercontent.com/pw/AM-JKLUK-ObkFU5qbsyMdhIyLukuiRLG_gWbP-onLW0ghCXizQ0YlujvLpHGq0L9bGCosUAxRpu4kv65Qj2ZG0SBGq2LrFOviR6DZ68No-FXDECf3-7yLeaE_BDo20FC_wASnyoKsePPCKAegtmE50KRnFo=w577-h433-no?authuser=0'
+       type="image" name="saveForm" id="saveForm38" onclick="doThing38()"/>
+</div>
+
+            <div>
+    <input src='https://lh3.googleusercontent.com/pw/AM-JKLUK-ObkFU5qbsyMdhIyLukuiRLG_gWbP-onLW0ghCXizQ0YlujvLpHGq0L9bGCosUAxRpu4kv65Qj2ZG0SBGq2LrFOviR6DZ68No-FXDECf3-7yLeaE_BDo20FC_wASnyoKsePPCKAegtmE50KRnFo=w577-h433-no?authuser=0'
+       type="image" name="saveForm" id="saveForm39" onclick="doThing39()"/>
+</div>
+
+            <div>
+    <input src='https://lh3.googleusercontent.com/pw/AM-JKLUK-ObkFU5qbsyMdhIyLukuiRLG_gWbP-onLW0ghCXizQ0YlujvLpHGq0L9bGCosUAxRpu4kv65Qj2ZG0SBGq2LrFOviR6DZ68No-FXDECf3-7yLeaE_BDo20FC_wASnyoKsePPCKAegtmE50KRnFo=w577-h433-no?authuser=0'
+       type="image" name="saveForm" id="saveForm40" onclick="doThing40()"/>
+</div>
+
+   <div>
+    <input src='https://lh3.googleusercontent.com/pw/AM-JKLUK-ObkFU5qbsyMdhIyLukuiRLG_gWbP-onLW0ghCXizQ0YlujvLpHGq0L9bGCosUAxRpu4kv65Qj2ZG0SBGq2LrFOviR6DZ68No-FXDECf3-7yLeaE_BDo20FC_wASnyoKsePPCKAegtmE50KRnFo=w577-h433-no?authuser=0'
+      type="image" name="saveForm" id="saveForm41" onclick="doThing41()"/>
+
+</div>
+
+        <div>
+    <input src='https://lh3.googleusercontent.com/pw/AM-JKLUK-ObkFU5qbsyMdhIyLukuiRLG_gWbP-onLW0ghCXizQ0YlujvLpHGq0L9bGCosUAxRpu4kv65Qj2ZG0SBGq2LrFOviR6DZ68No-FXDECf3-7yLeaE_BDo20FC_wASnyoKsePPCKAegtmE50KRnFo=w577-h433-no?authuser=0'
+           type="image" name="saveForm" id="saveForm42" onclick="doThing42()"/>
+</div>
+
+            <div>
+    <input src='https://lh3.googleusercontent.com/pw/AM-JKLUK-ObkFU5qbsyMdhIyLukuiRLG_gWbP-onLW0ghCXizQ0YlujvLpHGq0L9bGCosUAxRpu4kv65Qj2ZG0SBGq2LrFOviR6DZ68No-FXDECf3-7yLeaE_BDo20FC_wASnyoKsePPCKAegtmE50KRnFo=w577-h433-no?authuser=0'
+      type="image" name="saveForm" id="saveForm43" onclick="doThing43()"/>
+</div>
+
+            <div>
+    <input src='https://lh3.googleusercontent.com/pw/AM-JKLUK-ObkFU5qbsyMdhIyLukuiRLG_gWbP-onLW0ghCXizQ0YlujvLpHGq0L9bGCosUAxRpu4kv65Qj2ZG0SBGq2LrFOviR6DZ68No-FXDECf3-7yLeaE_BDo20FC_wASnyoKsePPCKAegtmE50KRnFo=w577-h433-no?authuser=0'
+      type="image" name="saveForm" id="saveForm44" onclick="doThing44()"/>
+</div>
+
+            <div>
+    <input src='https://lh3.googleusercontent.com/pw/AM-JKLUK-ObkFU5qbsyMdhIyLukuiRLG_gWbP-onLW0ghCXizQ0YlujvLpHGq0L9bGCosUAxRpu4kv65Qj2ZG0SBGq2LrFOviR6DZ68No-FXDECf3-7yLeaE_BDo20FC_wASnyoKsePPCKAegtmE50KRnFo=w577-h433-no?authuser=0'
+      type="image" name="saveForm" id="saveForm45" onclick="doThing45()"/>
+</div>
+
+</div>
+
+</body>
+</html>
