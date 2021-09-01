@@ -9,6 +9,11 @@ var take3=false;
 var take4=false;
 var take5=false;
 var finalTake=false;
+var eas=false;
+var mediu=false;
+var har=false;
+
+
 
 var inputs=document.getElementsByTagName('input');
 for(i=0;i<inputs.length;i++){
@@ -20,12 +25,15 @@ draw();
 
 
 function draw(){
-
-document.addEventListener('DOMContentLoaded', (event) => {
   //waiting for the first click
-document.addEventListener("click", waitToStart);
+if (eas==true || mediu==true || har==true){
 
-});
+
+waitToStart();
+}
+
+
+
 
 if (numBugs==0){
 win();
@@ -33,15 +41,67 @@ win();
 lose();
 }
 
-
 //if (startGame==false && gameOngoing==true){
 //var elem= document.getElementById("welcome");
 ////elem.style.display='block';
 //}
 }
 
+
+//easyButton is clicked
+function easy(){
+//remove buttons
+var easyBut = document.getElementById("easy");
+easyBut.remove();
+
+var medBut = document.getElementById("medium");
+medBut.remove();
+
+var hardBut =document.getElementById("hard");
+hardBut.remove();
+
+eas=true;
+console.log(eas);
+draw();
+}
+
+//medButton is clicked
+function medium(){
+//remove buttons
+var easyBut = document.getElementById("easy");
+easyBut.remove();
+
+var medBut = document.getElementById("medium");
+medBut.remove();
+
+var hardBut =document.getElementById("hard");
+hardBut.remove();
+
+mediu=true;
+draw();
+}
+
+//hardButton is clicked
+function hard(){
+//remove buttons
+var easyBut = document.getElementById("easy");
+easyBut.remove();
+
+var medBut = document.getElementById("medium");
+medBut.remove();
+
+var hardBut =document.getElementById("hard");
+hardBut.remove();
+
+har=true;
+draw();
+}
+
+
 //when first click occurs, remove welcome screen, and initial load images
-function waitToStart(start){
+function waitToStart(){
+
+
 document.getElementById("prog").style.display = 'block';
 //remove welcome screen
 var elem= document.getElementById("welcome");
@@ -50,7 +110,7 @@ startGame=true;
 var elem2= document.getElementById("canvas");
 elem2.parentNode.removeChild(elem2);
 //call to load initial 5 images after DOM loads
-document.removeEventListener("click", waitToStart);
+
 
 initImgs();
     var img = document.createElement("img");
@@ -64,6 +124,8 @@ initImgs();
     document.body.appendChild(img);
     contain.appendChild(img);
   // document.appendChild(img);
+
+
 }
 
 function initImgs(){
@@ -95,30 +157,83 @@ setTimeout(loadDelayed(), 1000);
 //load delayed images
 function loadDelayed(){
 if (startGame==true && take1==true) {
-setTimeout(happen1, 2000);
+
+if (eas==true){
+setTimeout(happen1, 3000);
+}
+if (mediu==true){
+setTimeout(happen1, 2500);
+}
+if (har==true){
+setTimeout(happen1, 1500);
+}
+
 }
 
 }
 
 function trackNum(){
-console.log(finalTake);
+
+if (eas==true){
 if (startGame==true && numBugs==0 && finalTake==false){
 win();
 gameOngoing=false;
 } else if (numBugs>=35){
 lose();
 } else if (startGame==true && take1==false && take2==true && gameOngoing==true) {
-setTimeout(happen2, 3000);
+setTimeout(happen2, 4500);
 } else if (startGame==true && take2==false && take3==true && gameOngoing==true){
-setTimeout(happen3, 3000);
+setTimeout(happen3, 3500);
 } else if (startGame==true && take2==false && take3==false && take4==true && gameOngoing==true){
-setTimeout(happen4, 4500);
+setTimeout(happen4, 2500);
 } else if (startGame==true && take2==false && take3==false && take4==false && take5==true && gameOngoing==true){
-setTimeout(happen5, 5750);
+setTimeout(happen5, 2500);
 } else if (startGame==true && take2==false && take3==false && take4==false && take5==false && finalTake==true && gameOngoing==true){
 setTimeout(happen6, 50);
 console.log(numBugs);
 }
+}
+
+if (mediu==true){
+if (startGame==true && numBugs==0 && finalTake==false){
+win();
+gameOngoing=false;
+} else if (numBugs>=35){
+lose();
+} else if (startGame==true && take1==false && take2==true && gameOngoing==true) {
+setTimeout(happen2, 2500);
+} else if (startGame==true && take2==false && take3==true && gameOngoing==true){
+setTimeout(happen3, 2000);
+} else if (startGame==true && take2==false && take3==false && take4==true && gameOngoing==true){
+setTimeout(happen4, 1800);
+} else if (startGame==true && take2==false && take3==false && take4==false && take5==true && gameOngoing==true){
+setTimeout(happen5, 2800);
+} else if (startGame==true && take2==false && take3==false && take4==false && take5==false && finalTake==true && gameOngoing==true){
+setTimeout(happen6, 50);
+console.log(numBugs);
+}
+}
+
+if (har==true){
+if (startGame==true && numBugs==0 && finalTake==false){
+win();
+gameOngoing=false;
+} else if (numBugs>=35){
+lose();
+} else if (startGame==true && take1==false && take2==true && gameOngoing==true) {
+setTimeout(happen2, 1500);
+} else if (startGame==true && take2==false && take3==true && gameOngoing==true){
+setTimeout(happen3, 1700);
+} else if (startGame==true && take2==false && take3==false && take4==true && gameOngoing==true){
+setTimeout(happen4, 1800);
+} else if (startGame==true && take2==false && take3==false && take4==false && take5==true && gameOngoing==true){
+setTimeout(happen5, 2000);
+} else if (startGame==true && take2==false && take3==false && take4==false && take5==false && finalTake==true && gameOngoing==true){
+setTimeout(happen6, 500);
+console.log(numBugs);
+}
+}
+
 }
 
 function happen1(){
@@ -310,7 +425,7 @@ for(i=0;i<inputs.length;i++){
 
 function happen3(){
 document.getElementById('saveForm26').style.marginTop= randomY();
-document.getElementById('saveForm26').style.marginLeft= randomY();
+document.getElementById('saveForm26').style.marginLeft= randomX();
 document.getElementById('saveForm27').style.marginLeft= randomX();
 document.getElementById('saveForm27').style.marginTop= randomY();
 document.getElementById('saveForm28').style.marginLeft= randomX();
@@ -529,6 +644,18 @@ document.body.appendChild(h3);
 divlose1.appendChild(h2);
 divlose2.appendChild(h3);
 
+if (window.screen.width <= 400 && window.screen.height <= 820){
+divlose2.style.marginTop= "50%";
+divlose2.style.marginLeft="35%";
+divlose1.style.marginTop= "30%";
+divlose1.style.marginLeft = "10%";
+} else {
+divlose2.style.marginTop= "25%";
+divlose2.style.marginLeft="45%";
+divlose1.style.marginTop= "10%";
+divlose1.style.marginLeft = "25%";
+}
+
 divlose1.style.color = "green";
 divlose1.style.textAlign='center';
 divlose2.style.textAlign='center';
@@ -563,10 +690,22 @@ h3.appendChild(t3);
 document.body.appendChild(h3);
 divlose2.appendChild(h3);
 
+if (window.screen.width <= 400 && window.screen.height <= 820){
+divlose2.style.marginTop= "50%";
+divlose2.style.marginLeft="35%";
+divlose1.style.marginTop= "35%";
+divlose1.style.marginLeft = "20%";
+} else {
+divlose2.style.marginTop= "15%";
+divlose2.style.marginLeft="35%";
+divlose1.style.marginTop= "10%";
+divlose1.style.marginLeft = "25%";
+}
+
+
 divlose1.style.zIndex = "3";
 divlose1.style.color = "red";
 divlose2.style.zIndex = "3";
-
 divlose1.style.display='block';
 divlose2.style.display='block';
 document.getElementById('bigBug').style.display='block';
@@ -576,17 +715,27 @@ document.getElementById('bigBug').style.display='block';
 
 //get random X values for images
 function randomX(){
-       var bugTest= document.getElementById('saveForm1');
+if (window.screen.width <= 400 && window.screen.height <= 820){
+	  var randomX = Math.floor(Math.random()*(window.screen.availWidth));
+} else {
+ var bugTest= document.getElementById('saveForm1');
+var randomX = Math.floor(Math.random()*(window.innerWidth-(bugTest.width*2)));
+}
+return randomX;
 
-	  var randomX = Math.floor(Math.random()*(window.innerWidth));
-    return randomX-(bugTest.offsetWidth*2);
 }
 
 //get random Y values for images
 function randomY(){
-var bugTest= document.getElementById('saveForm1');
-	  var randomY = Math.floor(Math.random()*(window.innerHeight));
-    return randomY-(bugTest.offsetHeight*2);
+if (window.screen.width <= 400 && window.screen.height <= 820){
+      var bugTest= document.getElementById('saveForm1');
+	  var randomY = Math.floor(Math.random()*((window.screen.availHeight*2)-bugTest.height));
+
+} else{
+      var bugTest= document.getElementById('saveForm1');
+	  var randomY = Math.floor(Math.random()*(window.innerHeight-(bugTest.width*2)));
+	  }
+    return randomY;
 }
 
 //on clicks, get image and make it disappear; subtract one bug and remove some proportion of bugs
