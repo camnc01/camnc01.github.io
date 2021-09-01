@@ -1,6 +1,6 @@
 var canvas= document.getElementById("canvas");
 var ctx= canvas.getContext('2d');
-var numBugs=0;
+var numBugs=5;
 var startGame=false;
 var gameOngoing=true;
 var take1=true;
@@ -8,26 +8,36 @@ var take2=false;
 var take3=false;
 var take4=false;
 var take5=false;
+var finalTake=false;
 
 var inputs=document.getElementsByTagName('input');
 for(i=0;i<inputs.length;i++){
     inputs[i].disabled=false;
 }
 
- draw();
+draw();
 
 
 
 function draw(){
 
-//waiting for the first click
+document.addEventListener('DOMContentLoaded', (event) => {
+  //waiting for the first click
 document.addEventListener("click", waitToStart);
+
+});
+
+if (numBugs==0){
+win();
+} if (numBugs>=35){
+lose();
+}
+
 
 //if (startGame==false && gameOngoing==true){
 //var elem= document.getElementById("welcome");
 ////elem.style.display='block';
 //}
-
 }
 
 //when first click occurs, remove welcome screen, and initial load images
@@ -48,9 +58,12 @@ initImgs();
     img.width = window.innerWidth;
     img.height = window.innerHeight;
     img.zIndex=0;
-    // This adds it to the <body> tag
-    document.body.appendChild(img);
 
+    // Add it to the <body> tag
+    var contain= document.getElementById('contain');
+    document.body.appendChild(img);
+    contain.appendChild(img);
+  // document.appendChild(img);
 }
 
 function initImgs(){
@@ -68,15 +81,10 @@ document.getElementById('saveForm5').style.marginLeft= randomX();
 document.getElementById('saveForm5').style.marginTop= randomY();
 
 document.getElementById('saveForm1').style.display= 'block';
-numBugs++;
 document.getElementById('saveForm2').style.display= 'block';
-numBugs++;
 document.getElementById('saveForm3').style.display= 'block';
-numBugs++;
 document.getElementById('saveForm4').style.display= 'block';
-numBugs++;
 document.getElementById('saveForm5').style.display= 'block';
-numBugs++;
 
 console.log(numBugs);
 //call to load delayed images
@@ -93,20 +101,23 @@ setTimeout(happen1, 2000);
 }
 
 function trackNum(){
-if (startGame==true && numBugs==0){
+console.log(finalTake);
+if (startGame==true && numBugs==0 && finalTake==false){
 win();
 gameOngoing=false;
 } else if (numBugs>=35){
 lose();
 } else if (startGame==true && take1==false && take2==true && gameOngoing==true) {
-setTimeout(happen2, 5500);
+setTimeout(happen2, 3000);
 } else if (startGame==true && take2==false && take3==true && gameOngoing==true){
-setTimeout(happen3, 3500);
+setTimeout(happen3, 3000);
 } else if (startGame==true && take2==false && take3==false && take4==true && gameOngoing==true){
-//long setTimeout
-setTimeout(happen4, 5500);
+setTimeout(happen4, 4500);
 } else if (startGame==true && take2==false && take3==false && take4==false && take5==true && gameOngoing==true){
-setTimeout(happen5, 5500);
+setTimeout(happen5, 5750);
+} else if (startGame==true && take2==false && take3==false && take4==false && take5==false && finalTake==true && gameOngoing==true){
+setTimeout(happen6, 50);
+console.log(numBugs);
 }
 }
 
@@ -431,7 +442,7 @@ document.getElementById('saveForm45').style.marginTop= randomY();
     numBugs= numBugs + 5;
     console.log(numBugs);
     document.getElementById("file").value += 15;
- } else if (numBugs=0){
+ } else if (numBugs==0){
  win();
  } else if (numBugs>=35) {
 lose();
@@ -450,11 +461,22 @@ for(i=0;i<inputs.length;i++){
 }
 
 function happen5(){
+take5=false;
+finalTake=true;
+
 if (numBugs>=35) {
 lose();
-} else if (numBugs=0){
+} else if (numBugs==0){
 win();
 } else {
+trackNum();
+}
+
+}
+
+function happen6(){
+
+if (numBugs=>1) {
 var inputs=document.getElementsByTagName('input');
 document.getElementById("file").value = 100;
 for(i=0;i<inputs.length;i++){
@@ -465,15 +487,16 @@ var t1 = document.createTextNode("Time's Up!");     // Create a text node
 h1.appendChild(t1);                                   // Append the text to <h1>
 document.body.appendChild(h1);
 var divlose1= document.getElementById('divlose1');
-divlose1.appendChild(h1);
-divlose1.style.zIndex = "1";
 divlose1.style.color = "red";
-divlose1.style.textAlign='center';
-divlose1.style.top = "50%";
+//divlose1.style.textAlign='center';
+//divlose1.style.top = "50%";
+divlose1.appendChild(h1);
+divlose1.style.display = "block";
 
 lose();
-
 }
+} else if (numBugs==0){
+win();
 }
 
 }
@@ -506,13 +529,12 @@ document.body.appendChild(h3);
 divlose1.appendChild(h2);
 divlose2.appendChild(h3);
 
-divlose1.style.zIndex = "1";
 divlose1.style.color = "green";
 divlose1.style.textAlign='center';
-divlose2.style.zIndex = "1";
-divlose2.style.color = "grey";
 divlose2.style.textAlign='center';
-//divl.style.top = "50%";
+divlose1.style.display = "block";
+divlose2.style.display = "block";
+
 }
 
 function lose(){
@@ -523,7 +545,9 @@ elem3.parentNode.removeChild(elem3);
 var inputs=document.getElementsByTagName('input');
 for(i=0;i<inputs.length;i++){
     inputs[i].style.display='block';
+    inputs[i].disabled=true;
 }
+
 //text that the bugs are out of control
 var h = document.createElement("H1");              // Create a <h1> element
 var t = document.createTextNode("the population has gotten out of control");     // Create a text node
@@ -539,15 +563,12 @@ h3.appendChild(t3);
 document.body.appendChild(h3);
 divlose2.appendChild(h3);
 
-divlose1.style.zIndex = "1";
+divlose1.style.zIndex = "3";
 divlose1.style.color = "red";
-divlose1.style.textAlign='center';
-divlose1.style.top = "50%";
-divlose2.style.zIndex = "1";
-divlose2.style.color = "grey";
-divlose2.style.textAlign='center';
-divlose2.style.top = "50%";
+divlose2.style.zIndex = "3";
 
+divlose1.style.display='block';
+divlose2.style.display='block';
 document.getElementById('bigBug').style.display='block';
 
 
@@ -555,14 +576,17 @@ document.getElementById('bigBug').style.display='block';
 
 //get random X values for images
 function randomX(){
-	  var randomX = Math.floor(Math.random()*(window.innerWidth-canvas.width));
-    return randomX;
+       var bugTest= document.getElementById('saveForm1');
+
+	  var randomX = Math.floor(Math.random()*(window.innerWidth));
+    return randomX-(bugTest.offsetWidth*2);
 }
 
 //get random Y values for images
 function randomY(){
-	  var randomY = Math.floor(Math.random()*(window.innerHeight-canvas.height));
-    return randomY;
+var bugTest= document.getElementById('saveForm1');
+	  var randomY = Math.floor(Math.random()*(window.innerHeight));
+    return randomY-(bugTest.offsetHeight*2);
 }
 
 //on clicks, get image and make it disappear; subtract one bug and remove some proportion of bugs
