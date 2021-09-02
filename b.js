@@ -715,10 +715,9 @@ document.getElementById('bigBug').style.display='block';
 //get random X values for images
 function randomX(){
 if (window.screen.width <= 400 && window.screen.height <= 820){
-	  var randomX = Math.floor(Math.random()*(window.screen.availWidth));
+	  var randomX = Math.floor(Math.random()*((window.screen.availWidth*2)- (window.innerWidth/6)));
 } else {
- var bugTest= document.getElementById('saveForm1');
-var randomX = Math.floor(Math.random()*(window.innerWidth-(bugTest.width*2)));
+var randomX = Math.floor(Math.random()*(window.innerWidth-(window.innerWidth/8)));
 }
 return randomX;
 
@@ -728,11 +727,10 @@ return randomX;
 function randomY(){
 if (window.screen.width <= 400 && window.screen.height <= 820){
       var bugTest= document.getElementById('saveForm1');
-	  var randomY = Math.floor(Math.random()*((window.screen.availHeight*2)-bugTest.height));
+	  var randomY = Math.floor(Math.random()*((window.screen.availHeight*2)-(window.innerWidth/6)));
 
 } else{
-      var bugTest= document.getElementById('saveForm1');
-	  var randomY = Math.floor(Math.random()*(window.innerHeight-(bugTest.width*2)));
+	  var randomY = Math.floor(Math.random()*(window.innerHeight-(window.innerWidth/8)));
 	  }
     return randomY;
 }
