@@ -54,8 +54,8 @@ input[type=image]{
 z-index:1;
 position:absolute;
 display:none;
-width:15%;
-height:15%;
+width:25%;
+height:25%;
 box-sizing: border-box;
 }
 
@@ -70,20 +70,73 @@ display:none;
 #contain{
 position:absolute;
 text-align:center;
+}
 
+#logo{
+margin-top: 45%;
+margin-left:20%;
+  width: 100%;
+  padding: 0px;
+
+box-sizing: border-box;
+display:none;
+z-index:3;
+position: fixed;
+
+}
+
+#info1{
+margin-top: 0px;
+margin-left:18%;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+display: block;
+text-align: center;
+z-index:0;
+font-size: 11px;
 }
 
 #divlose1{
 z-index:3;
-position:fixed;
+position:absolute;
 display:none;
 text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+text-align:center;
 }
 
 #divlose2{
 z-index:3;
-position:fixed;
+position:absolute;
 display:none;
 color:white;
 text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+text-align:center;
+}
+
+#divlose3{
+z-index:3;
+position:absolute;
+display:none;
+text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+#divlose4{
+z-index:3;
+position:absolute;
+display:none;
+text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+a:link, a:visited {
+  background-color: none;
+  color: black;
+  padding: 15px 24px;
+  text-decoration: underline;
+  display: inline-block;
+}
+
+
+p{
+  text-indent: 150px;
 }

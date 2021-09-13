@@ -13,17 +13,22 @@ var eas=false;
 var mediu=false;
 var har=false;
 
+draw();
 
 var inputs=document.getElementsByTagName('input');
 for(i=0;i<inputs.length;i++){
     inputs[i].disabled=false;
+
 }
 
-draw();
 
+function number(){
+return numBugs;
+}
 
 
 function draw(){
+
   //waiting for the first click
 if (eas==true || mediu==true || har==true){
 
@@ -32,18 +37,12 @@ waitToStart();
 }
 
 
-
-
 if (numBugs==0){
 win();
 } if (numBugs>=35){
 lose();
 }
 
-//if (startGame==false && gameOngoing==true){
-//var elem= document.getElementById("welcome");
-////elem.style.display='block';
-//}
 }
 
 
@@ -105,24 +104,27 @@ document.getElementById("prog").style.display = 'block';
 //remove welcome screen
 var elem= document.getElementById("welcome");
 elem.parentNode.removeChild(elem);
+var elem1= document.getElementById("info1");
+elem1.style.display='none';
 startGame=true;
 var elem2= document.getElementById("canvas");
 elem2.parentNode.removeChild(elem2);
+
+
+
 //call to load initial 5 images after DOM loads
-
-
 initImgs();
-    var img = document.createElement("img");
-    img.src = "https://lh3.googleusercontent.com/pw/AM-JKLWF3IRRV3Xgv2uywUMwHbZN_8iYrSFtoXMH2zQreuiQJrvdALwQtjfyZgPVp4Qua-q_IDGRXibH9N2ZvhHjwH1aGV4C49EwYLUqNxGPCEMOkmw3CmXcsdkd3l7kiu0FlKMAs-Eh9h2VvnHJrkZ2HuS3=w1354-h1230-no?authuser=0";
-    img.width = window.innerWidth;
-    img.height = window.innerHeight;
-    img.zIndex=0;
+    var img1 = document.createElement("img");
+    img1.src = "https://lh3.googleusercontent.com/pw/AM-JKLWF3IRRV3Xgv2uywUMwHbZN_8iYrSFtoXMH2zQreuiQJrvdALwQtjfyZgPVp4Qua-q_IDGRXibH9N2ZvhHjwH1aGV4C49EwYLUqNxGPCEMOkmw3CmXcsdkd3l7kiu0FlKMAs-Eh9h2VvnHJrkZ2HuS3=w1354-h1230-no?authuser=0";
+    img1.width = window.innerWidth;
+    img1.height = window.innerHeight;
+    img1.zIndex=0;
 
     // Add it to the <body> tag
     var contain= document.getElementById('contain');
-    document.body.appendChild(img);
-    contain.appendChild(img);
-  // document.appendChild(img);
+    document.body.appendChild(img1);
+    contain.appendChild(img1);
+
 
 
 }
@@ -149,7 +151,7 @@ document.getElementById('saveForm5').style.display= 'block';
 
 console.log(numBugs);
 //call to load delayed images
-setTimeout(loadDelayed(), 1000);
+setTimeout(loadDelayed(), 2000);
 
 }
 
@@ -158,13 +160,13 @@ function loadDelayed(){
 if (startGame==true && take1==true) {
 
 if (eas==true){
-setTimeout(happen1, 3000);
-}
-if (mediu==true){
 setTimeout(happen1, 2500);
 }
+if (mediu==true){
+setTimeout(happen1, 2000);
+}
 if (har==true){
-setTimeout(happen1, 1500);
+setTimeout(happen1, 1700);
 }
 
 }
@@ -177,7 +179,7 @@ if (eas==true){
 if (startGame==true && numBugs==0 && finalTake==false){
 win();
 gameOngoing=false;
-} else if (numBugs>=35){
+} else if (numBugs>=65){
 lose();
 } else if (startGame==true && take1==false && take2==true && gameOngoing==true) {
 setTimeout(happen2, 4500);
@@ -197,16 +199,16 @@ if (mediu==true){
 if (startGame==true && numBugs==0 && finalTake==false){
 win();
 gameOngoing=false;
-} else if (numBugs>=35){
+} else if (numBugs>=65){
 lose();
 } else if (startGame==true && take1==false && take2==true && gameOngoing==true) {
 setTimeout(happen2, 2500);
 } else if (startGame==true && take2==false && take3==true && gameOngoing==true){
-setTimeout(happen3, 2000);
+setTimeout(happen3, 4500);
 } else if (startGame==true && take2==false && take3==false && take4==true && gameOngoing==true){
-setTimeout(happen4, 1800);
+setTimeout(happen4, 7500);
 } else if (startGame==true && take2==false && take3==false && take4==false && take5==true && gameOngoing==true){
-setTimeout(happen5, 2800);
+setTimeout(happen5, 4800);
 } else if (startGame==true && take2==false && take3==false && take4==false && take5==false && finalTake==true && gameOngoing==true){
 setTimeout(happen6, 50);
 console.log(numBugs);
@@ -217,18 +219,18 @@ if (har==true){
 if (startGame==true && numBugs==0 && finalTake==false){
 win();
 gameOngoing=false;
-} else if (numBugs>=35){
+} else if (numBugs>=65){
 lose();
 } else if (startGame==true && take1==false && take2==true && gameOngoing==true) {
-setTimeout(happen2, 1500);
+setTimeout(happen2, 2500);
 } else if (startGame==true && take2==false && take3==true && gameOngoing==true){
-setTimeout(happen3, 1700);
+setTimeout(happen3, 6500);
 } else if (startGame==true && take2==false && take3==false && take4==true && gameOngoing==true){
-setTimeout(happen4, 1800);
+setTimeout(happen4, 4000);
 } else if (startGame==true && take2==false && take3==false && take4==false && take5==true && gameOngoing==true){
-setTimeout(happen5, 2000);
+setTimeout(happen5, 6500);
 } else if (startGame==true && take2==false && take3==false && take4==false && take5==false && finalTake==true && gameOngoing==true){
-setTimeout(happen6, 500);
+setTimeout(happen6, 50);
 console.log(numBugs);
 }
 }
@@ -259,8 +261,30 @@ document.getElementById('saveForm14').style.marginTop= randomY();
 document.getElementById('saveForm15').style.marginLeft= randomX();
 document.getElementById('saveForm15').style.marginTop= randomY();
 
+document.getElementById('saveForm46').style.marginLeft= randomX();
+document.getElementById('saveForm46').style.marginTop= randomY();
+document.getElementById('saveForm47').style.marginTop= randomY();
+document.getElementById('saveForm47').style.marginLeft= randomX();
+document.getElementById('saveForm48').style.marginTop= randomY();
+document.getElementById('saveForm48').style.marginLeft= randomX();
+document.getElementById('saveForm49').style.marginTop= randomY();
+document.getElementById('saveForm49').style.marginLeft= randomX();
+document.getElementById('saveForm50').style.marginLeft= randomX();
+document.getElementById('saveForm50').style.marginTop= randomY();
+
+document.getElementById('saveForm81').style.marginLeft= randomX();
+document.getElementById('saveForm81').style.marginTop= randomY();
+document.getElementById('saveForm82').style.marginLeft= randomX();
+document.getElementById('saveForm82').style.marginTop= randomY();
+document.getElementById('saveForm83').style.marginLeft= randomX();
+document.getElementById('saveForm83').style.marginTop= randomY();
 
 if (numBugs == 5){
+    document.getElementById('saveForm46').style.display='block';
+    document.getElementById('saveForm47').style.display='block';
+    document.getElementById('saveForm48').style.display='block';
+    document.getElementById('saveForm49').style.display='block';
+    document.getElementById('saveForm50').style.display='block';
     document.getElementById('saveForm6').style.display='block';
     document.getElementById('saveForm7').style.display='block';
     document.getElementById('saveForm8').style.display='block';
@@ -271,9 +295,12 @@ if (numBugs == 5){
     document.getElementById('saveForm13').style.display='block';
     document.getElementById('saveForm14').style.display='block';
     document.getElementById('saveForm15').style.display='block';
-    numBugs= numBugs + 10;
+    document.getElementById('saveForm81').style.display='block';
+    document.getElementById('saveForm82').style.display='block';
+    document.getElementById('saveForm83').style.display='block';
+    numBugs= numBugs + 18;
     console.log(numBugs);
-    document.getElementById("file").value += 25;
+    document.getElementById("file").value += 54;
     } else if (numBugs == 4){
     document.getElementById('saveForm15').style.display='block';
     document.getElementById('saveForm12').style.display='block';
@@ -283,9 +310,17 @@ if (numBugs == 5){
     document.getElementById('saveForm8').style.display='block';
     document.getElementById('saveForm9').style.display='block';
     document.getElementById('saveForm14').style.display='block';
-    numBugs= numBugs + 8;
+    document.getElementById('saveForm46').style.display='block';
+    document.getElementById('saveForm47').style.display='block';
+    document.getElementById('saveForm48').style.display='block';
+    document.getElementById('saveForm49').style.display='block';
+    document.getElementById('saveForm50').style.display='block';
+    document.getElementById('saveForm81').style.display='block';
+    document.getElementById('saveForm82').style.display='block';
+    document.getElementById('saveForm83').style.display='block';
+    numBugs= numBugs + 16;
     console.log(numBugs);
-    document.getElementById("file").value += 20;
+    document.getElementById("file").value += 45;
     } else if (numBugs == 3){
     document.getElementById('saveForm7').style.display='block';
     document.getElementById('saveForm8').style.display='block';
@@ -293,19 +328,29 @@ if (numBugs == 5){
     document.getElementById('saveForm15').style.display='block';
     document.getElementById('saveForm12').style.display='block';
     document.getElementById('saveForm13').style.display='block';
+    document.getElementById('saveForm46').style.display='block';
+    document.getElementById('saveForm47').style.display='block';
+    document.getElementById('saveForm48').style.display='block';
+    document.getElementById('saveForm49').style.display='block';
+    document.getElementById('saveForm50').style.display='block';
+    document.getElementById('saveForm83').style.display='block';
     numBugs=numBugs;
-    numBugs= numBugs + 6;
+    numBugs= numBugs + 12;
     console.log(numBugs);
-    document.getElementById("file").value += 10;
+    document.getElementById("file").value += 35;
     } else if (numBugs == 2){
     document.getElementById('saveForm15').style.display='block';
     document.getElementById('saveForm12').style.display='block';
     document.getElementById('saveForm7').style.display='block';
     document.getElementById('saveForm8').style.display='block';
+    document.getElementById('saveForm46').style.display='block';
+    document.getElementById('saveForm47').style.display='block';
+    document.getElementById('saveForm48').style.display='block';
+    document.getElementById('saveForm49').style.display='block';
     numBugs=numBugs;
-    numBugs= numBugs + 4;
+    numBugs= numBugs + 8;
     console.log(numBugs);
-    document.getElementById("file").value += 5;
+    document.getElementById("file").value += 24;
     } else if (numBugs == 1){
     document.getElementById('saveForm15').style.display='block';
     document.getElementById('saveForm7').style.display='block';
@@ -314,7 +359,7 @@ if (numBugs == 5){
     numBugs=numBugs;
     numBugs= numBugs + 4;
     console.log(numBugs);
-    document.getElementById("file").value += 5;
+    document.getElementById("file").value += 12;
     } else if (numBugs==0){
     win();
     }
@@ -354,6 +399,28 @@ document.getElementById('saveForm24').style.marginTop= randomY();
 document.getElementById('saveForm25').style.marginLeft= randomX();
 document.getElementById('saveForm25').style.marginTop= randomY();
 
+document.getElementById('saveForm51').style.marginLeft= randomX();
+document.getElementById('saveForm51').style.marginTop= randomY();
+document.getElementById('saveForm52').style.marginLeft= randomX();
+document.getElementById('saveForm52').style.marginTop= randomY();
+document.getElementById('saveForm53').style.marginLeft= randomX();
+document.getElementById('saveForm53').style.marginTop= randomY();
+document.getElementById('saveForm54').style.marginLeft= randomX();
+document.getElementById('saveForm54').style.marginTop= randomY();
+document.getElementById('saveForm55').style.marginLeft= randomX();
+document.getElementById('saveForm55').style.marginTop= randomY();
+
+document.getElementById('saveForm56').style.marginTop= randomY();
+document.getElementById('saveForm56').style.marginLeft= randomX();
+document.getElementById('saveForm57').style.marginLeft= randomX();
+document.getElementById('saveForm57').style.marginTop= randomY();
+document.getElementById('saveForm58').style.marginLeft= randomX();
+document.getElementById('saveForm58').style.marginTop= randomY();
+document.getElementById('saveForm59').style.marginLeft= randomX();
+document.getElementById('saveForm59').style.marginTop= randomY();
+document.getElementById('saveForm60').style.marginLeft= randomX();
+document.getElementById('saveForm60').style.marginTop= randomY();
+
 
 if (numBugs >= 10){
     document.getElementById('saveForm16').style.display='block';
@@ -366,9 +433,19 @@ if (numBugs >= 10){
     document.getElementById('saveForm23').style.display='block';
     document.getElementById('saveForm24').style.display='block';
     document.getElementById('saveForm25').style.display='block';
-    numBugs= numBugs + 10;
+    document.getElementById('saveForm51').style.display='block';
+    document.getElementById('saveForm52').style.display='block';
+    document.getElementById('saveForm53').style.display='block';
+    document.getElementById('saveForm54').style.display='block';
+    document.getElementById('saveForm55').style.display='block';
+    document.getElementById('saveForm56').style.display='block';
+    document.getElementById('saveForm57').style.display='block';
+    document.getElementById('saveForm58').style.display='block';
+    document.getElementById('saveForm59').style.display='block';
+    document.getElementById('saveForm60').style.display='block';
+    numBugs= numBugs + 20;
     console.log(numBugs);
-    document.getElementById("file").value += 20;
+    document.getElementById("file").value += 55;
     } else if (numBugs >= 6){
     document.getElementById('saveForm17').style.display='block';
     document.getElementById('saveForm18').style.display='block';
@@ -379,33 +456,48 @@ if (numBugs >= 10){
     document.getElementById('saveForm22').style.display='block';
     document.getElementById('saveForm23').style.display='block';
     document.getElementById('saveForm24').style.display='block';
-    numBugs= numBugs + 9;
+    document.getElementById('saveForm51').style.display='block';
+    document.getElementById('saveForm52').style.display='block';
+    document.getElementById('saveForm53').style.display='block';
+    document.getElementById('saveForm54').style.display='block';
+    document.getElementById('saveForm55').style.display='block';
+    numBugs= numBugs + 14;
     console.log(numBugs);
-    document.getElementById("file").value += 15;
+    document.getElementById("file").value += 40;
     } else if (numBugs >= 3){
     document.getElementById('saveForm17').style.display='block';
     document.getElementById('saveForm18').style.display='block';
     document.getElementById('saveForm25').style.display='block';
     document.getElementById('saveForm22').style.display='block';
     document.getElementById('saveForm23').style.display='block';
-    numBugs= numBugs + 5;
+    document.getElementById('saveForm56').style.display='block';
+    document.getElementById('saveForm57').style.display='block';
+    document.getElementById('saveForm58').style.display='block';
+    document.getElementById('saveForm59').style.display='block';
+    document.getElementById('saveForm60').style.display='block';
+    numBugs= numBugs + 10;
     console.log(numBugs);
-    document.getElementById("file").value += 15;
+    document.getElementById("file").value += 30;
     } else if (numBugs == 2){
     document.getElementById('saveForm17').style.display='block';
     document.getElementById('saveForm18').style.display='block';
     document.getElementById('saveForm25').style.display='block';
     document.getElementById('saveForm22').style.display='block';
-    numBugs= numBugs + 4;
+    document.getElementById('saveForm56').style.display='block';
+    document.getElementById('saveForm57').style.display='block';
+    document.getElementById('saveForm58').style.display='block';
+    document.getElementById('saveForm60').style.display='block';
+    numBugs= numBugs + 8;
     console.log(numBugs);
-    document.getElementById("file").value += 12;
+    document.getElementById("file").value += 24;
     } else if (numBugs == 1){
     document.getElementById('saveForm21').style.display='block';
     document.getElementById('saveForm17').style.display='block';
     document.getElementById('saveForm18').style.display='block';
-    numBugs= numBugs + 3;
+    document.getElementById('saveForm58').style.display='block';
+    numBugs= numBugs + 4;
     console.log(numBugs);
-    document.getElementById("file").value += 10;
+    document.getElementById("file").value += 12;
     } else if (numBugs==0){
     win();
     }
@@ -445,6 +537,33 @@ document.getElementById('saveForm34').style.marginTop= randomY();
 document.getElementById('saveForm35').style.marginLeft= randomX();
 document.getElementById('saveForm35').style.marginTop= randomY();
 
+document.getElementById('saveForm61').style.marginLeft= randomX();
+document.getElementById('saveForm61').style.marginTop= randomY();
+document.getElementById('saveForm62').style.marginLeft= randomX();
+document.getElementById('saveForm62').style.marginTop= randomY();
+document.getElementById('saveForm63').style.marginLeft= randomX();
+document.getElementById('saveForm63').style.marginTop= randomY();
+document.getElementById('saveForm64').style.marginLeft= randomX();
+document.getElementById('saveForm64').style.marginTop= randomY();
+document.getElementById('saveForm65').style.marginLeft= randomX();
+document.getElementById('saveForm65').style.marginTop= randomY();
+
+document.getElementById('saveForm66').style.marginTop= randomY();
+document.getElementById('saveForm66').style.marginLeft= randomX();
+document.getElementById('saveForm67').style.marginLeft= randomX();
+document.getElementById('saveForm67').style.marginTop= randomY();
+document.getElementById('saveForm68').style.marginLeft= randomX();
+document.getElementById('saveForm68').style.marginTop= randomY();
+document.getElementById('saveForm69').style.marginLeft= randomX();
+document.getElementById('saveForm69').style.marginTop= randomY();
+document.getElementById('saveForm70').style.marginLeft= randomX();
+document.getElementById('saveForm70').style.marginTop= randomY();
+
+//document.getElementById('saveForm84').style.marginLeft= randomX();
+//document.getElementById('saveForm84').style.marginTop= randomY();
+//document.getElementById('saveForm85').style.marginLeft= randomX();
+//document.getElementById('saveForm85').style.marginTop= randomY();
+
 if (numBugs>10){
     document.getElementById('saveForm26').style.display='block';
     document.getElementById('saveForm27').style.display='block';
@@ -456,8 +575,18 @@ if (numBugs>10){
     document.getElementById('saveForm33').style.display='block';
     document.getElementById('saveForm34').style.display='block';
     document.getElementById('saveForm35').style.display='block';
-    numBugs= numBugs + 10;
-    document.getElementById("file").value += 25;
+    document.getElementById('saveForm66').style.display='block';
+    document.getElementById('saveForm67').style.display='block';
+    document.getElementById('saveForm68').style.display='block';
+    document.getElementById('saveForm69').style.display='block';
+    document.getElementById('saveForm70').style.display='block';
+    document.getElementById('saveForm61').style.display='block';
+    document.getElementById('saveForm62').style.display='block';
+    document.getElementById('saveForm63').style.display='block';
+    document.getElementById('saveForm64').style.display='block';
+    document.getElementById('saveForm65').style.display='block';
+    numBugs= numBugs + 20;
+    document.getElementById("file").value += 55;
     console.log(numBugs);
     } else if (numBugs>=5) {
     document.getElementById('saveForm33').style.display='block';
@@ -467,20 +596,44 @@ if (numBugs>10){
     document.getElementById('saveForm27').style.display='block';
     document.getElementById('saveForm28').style.display='block';
     document.getElementById('saveForm29').style.display='block';
-    numBugs= numBugs + 7;
-    document.getElementById("file").value += 17;
+    document.getElementById('saveForm66').style.display='block';
+    document.getElementById('saveForm67').style.display='block';
+    document.getElementById('saveForm68').style.display='block';
+    document.getElementById('saveForm69').style.display='block';
+    document.getElementById('saveForm70').style.display='block';
+    document.getElementById('saveForm61').style.display='block';
+    document.getElementById('saveForm62').style.display='block';
+    document.getElementById('saveForm63').style.display='block';
+    document.getElementById('saveForm64').style.display='block';
+    document.getElementById('saveForm65').style.display='block';
+    numBugs= numBugs + 17;
+    document.getElementById("file").value += 40;
     console.log(numBugs);
-    } else if (numBugs>0){
+    } else if (numBugs>=2){
+    document.getElementById('saveForm66').style.display='block';
+    document.getElementById('saveForm67').style.display='block';
+    document.getElementById('saveForm68').style.display='block';
+    document.getElementById('saveForm69').style.display='block';
+    document.getElementById('saveForm70').style.display='block';
+    document.getElementById('saveForm61').style.display='block';
+    document.getElementById('saveForm62').style.display='block';
+    document.getElementById('saveForm63').style.display='block';
+    document.getElementById('saveForm64').style.display='block';
+    document.getElementById('saveForm65').style.display='block';
+    numBugs= numBugs + 10;
+    document.getElementById("file").value += 30;
+    console.log(numBugs);
+    } else if (numBugs==1){
     document.getElementById('saveForm33').style.display='block';
     document.getElementById('saveForm26').style.display='block';
     document.getElementById('saveForm27').style.display='block';
     document.getElementById('saveForm28').style.display='block';
-    document.getElementById("file").value += 18;
+    document.getElementById("file").value += 12;
     numBugs= numBugs + 4;
     console.log(numBugs);
 } else if (numBugs==0){
 win();
-} else if (numBugs>=35){
+} else if (numBugs>=65){
 lose();
 }
 
@@ -520,6 +673,28 @@ document.getElementById('saveForm44').style.marginTop= randomY();
 document.getElementById('saveForm45').style.marginLeft= randomX();
 document.getElementById('saveForm45').style.marginTop= randomY();
 
+document.getElementById('saveForm71').style.marginLeft= randomX();
+document.getElementById('saveForm71').style.marginTop= randomY();
+document.getElementById('saveForm72').style.marginLeft= randomX();
+document.getElementById('saveForm72').style.marginTop= randomY();
+document.getElementById('saveForm73').style.marginLeft= randomX();
+document.getElementById('saveForm73').style.marginTop= randomY();
+document.getElementById('saveForm74').style.marginLeft= randomX();
+document.getElementById('saveForm74').style.marginTop= randomY();
+document.getElementById('saveForm75').style.marginLeft= randomX();
+document.getElementById('saveForm75').style.marginTop= randomY();
+
+document.getElementById('saveForm76').style.marginTop= randomY();
+document.getElementById('saveForm76').style.marginLeft= randomX();
+document.getElementById('saveForm77').style.marginLeft= randomX();
+document.getElementById('saveForm77').style.marginTop= randomY();
+document.getElementById('saveForm78').style.marginLeft= randomX();
+document.getElementById('saveForm78').style.marginTop= randomY();
+document.getElementById('saveForm79').style.marginLeft= randomX();
+document.getElementById('saveForm79').style.marginTop= randomY();
+document.getElementById('saveForm80').style.marginLeft= randomX();
+document.getElementById('saveForm80').style.marginTop= randomY();
+
 
  if (numBugs>=10){
     document.getElementById('saveForm36').style.display='block';
@@ -532,7 +707,17 @@ document.getElementById('saveForm45').style.marginTop= randomY();
     document.getElementById('saveForm43').style.display='block';
     document.getElementById('saveForm44').style.display='block';
     document.getElementById('saveForm45').style.display='block';
-    numBugs= numBugs + 10;
+    document.getElementById('saveForm76').style.display='block';
+    document.getElementById('saveForm77').style.display='block';
+    document.getElementById('saveForm78').style.display='block';
+    document.getElementById('saveForm79').style.display='block';
+    document.getElementById('saveForm80').style.display='block';
+    document.getElementById('saveForm71').style.display='block';
+    document.getElementById('saveForm72').style.display='block';
+    document.getElementById('saveForm73').style.display='block';
+    document.getElementById('saveForm74').style.display='block';
+    document.getElementById('saveForm75').style.display='block';
+    numBugs= numBugs + 20;
     console.log(numBugs);
     document.getElementById("file").value += 25;
  } else if (numBugs>5){
@@ -544,21 +729,39 @@ document.getElementById('saveForm45').style.marginTop= randomY();
     document.getElementById('saveForm41').style.display='block';
     document.getElementById('saveForm42').style.display='block';
     document.getElementById('saveForm43').style.display='block';
-    numBugs= numBugs + 8;
+    document.getElementById('saveForm71').style.display='block';
+    document.getElementById('saveForm72').style.display='block';
+    document.getElementById('saveForm73').style.display='block';
+    document.getElementById('saveForm74').style.display='block';
+    document.getElementById('saveForm75').style.display='block';
+    numBugs= numBugs + 13;
     console.log(numBugs);
-    document.getElementById("file").value += 18;
- } else if (numBugs>0){
+    document.getElementById("file").value += 29;
+ } else if (numBugs>=2){
     document.getElementById('saveForm36').style.display='block';
     document.getElementById('saveForm37').style.display='block';
     document.getElementById('saveForm38').style.display='block';
     document.getElementById('saveForm39').style.display='block';
     document.getElementById('saveForm40').style.display='block';
-    numBugs= numBugs + 5;
+    document.getElementById('saveForm71').style.display='block';
+    document.getElementById('saveForm72').style.display='block';
+    document.getElementById('saveForm73').style.display='block';
+    document.getElementById('saveForm74').style.display='block';
+    document.getElementById('saveForm75').style.display='block';
+    numBugs= numBugs + 10;
+    console.log(numBugs);
+    document.getElementById("file").value += 20;
+ } else if (numBugs==1){
+    document.getElementById('saveForm36').style.display='block';
+    document.getElementById('saveForm37').style.display='block';
+    document.getElementById('saveForm38').style.display='block';
+    document.getElementById('saveForm39').style.display='block';
+    numBugs= numBugs + 4;
     console.log(numBugs);
     document.getElementById("file").value += 15;
  } else if (numBugs==0){
  win();
- } else if (numBugs>=35) {
+ } else if (numBugs>=65) {
 lose();
 }
 
@@ -578,7 +781,7 @@ function happen5(){
 take5=false;
 finalTake=true;
 
-if (numBugs>=35) {
+if (numBugs>=65) {
 lose();
 } else if (numBugs==0){
 win();
@@ -591,21 +794,41 @@ trackNum();
 function happen6(){
 
 if (numBugs=>1) {
+
+document.getElementById('saveForm91').style.marginLeft= randomX();
+document.getElementById('saveForm91').style.marginTop= randomY();
+document.getElementById('saveForm92').style.marginLeft= randomX();
+document.getElementById('saveForm92').style.marginTop= randomY();
+document.getElementById('saveForm93').style.marginLeft= randomX();
+document.getElementById('saveForm93').style.marginTop= randomY();
+document.getElementById('saveForm94').style.marginLeft= randomX();
+document.getElementById('saveForm94').style.marginTop= randomY();
+document.getElementById('saveForm95').style.marginLeft= randomX();
+document.getElementById('saveForm95').style.marginTop= randomY();
+
+document.getElementById('saveForm96').style.marginTop= randomY();
+document.getElementById('saveForm96').style.marginLeft= randomX();
+document.getElementById('saveForm97').style.marginLeft= randomX();
+document.getElementById('saveForm97').style.marginTop= randomY();
+document.getElementById('saveForm98').style.marginLeft= randomX();
+document.getElementById('saveForm98').style.marginTop= randomY();
+document.getElementById('saveForm99').style.marginLeft= randomX();
+document.getElementById('saveForm99').style.marginTop= randomY();
+document.getElementById('saveForm100').style.marginLeft= randomX();
+document.getElementById('saveForm100').style.marginTop= randomY();
+
 var inputs=document.getElementsByTagName('input');
 document.getElementById("file").value = 100;
 for(i=0;i<inputs.length;i++){
     inputs[i].style.display='block';
-    numBugs=50;
+    numBugs=100;
 var h1 = document.createElement("H1");              // Create a <h1> element
 var t1 = document.createTextNode("Time's Up!");     // Create a text node
 h1.appendChild(t1);                                   // Append the text to <h1>
 document.body.appendChild(h1);
 var divlose1= document.getElementById('divlose1');
-divlose1.style.color = "red";
-//divlose1.style.textAlign='center';
-//divlose1.style.top = "50%";
+h1.style.color = "red";
 divlose1.appendChild(h1);
-divlose1.style.display = "block";
 
 lose();
 }
@@ -623,6 +846,11 @@ var inputs=document.getElementsByTagName('input');
 for(i=0;i<inputs.length;i++){
     inputs[i].style.display='none';
 }
+
+
+credits();
+
+
 //text that the bugs have been under control
 var h = document.createElement("H1");              // Create a <h1> element
 var t = document.createTextNode("Congrats!");     // Create a text node
@@ -643,17 +871,20 @@ document.body.appendChild(h3);
 divlose1.appendChild(h2);
 divlose2.appendChild(h3);
 
-if (window.screen.width <= 400 && window.screen.height <= 820){
-divlose2.style.marginTop= "50%";
-divlose2.style.marginLeft="35%";
-divlose1.style.marginTop= "30%";
-divlose1.style.marginLeft = "10%";
-} else {
-divlose2.style.marginTop= "25%";
-divlose2.style.marginLeft="45%";
-divlose1.style.marginTop= "10%";
+//organize text nodes
+if (window.screen.width <= 500 && window.screen.height <= 820){
+divlose2.style.marginTop= "10%";
+divlose2.style.marginLeft="40%";
+divlose1.style.marginTop= "0%";
 divlose1.style.marginLeft = "25%";
+} else {
+divlose2.style.marginTop= "10%";
+divlose2.style.marginLeft="45%";
+divlose1.style.marginTop= "0%";
+divlose1.style.marginLeft = "30%";
 }
+
+//display texts
 
 divlose1.style.color = "green";
 divlose1.style.textAlign='center';
@@ -674,9 +905,13 @@ for(i=0;i<inputs.length;i++){
     inputs[i].disabled=true;
 }
 
+
+credits();
+
+
 //text that the bugs are out of control
 var h = document.createElement("H1");              // Create a <h1> element
-var t = document.createTextNode("the population has gotten out of control");     // Create a text node
+var t = document.createTextNode("The Population Has Gotten Out of Control");     // Create a text node
 h.appendChild(t);                                   // Append the text to <h1>
 document.body.appendChild(h);
 var divlose1= document.getElementById('divlose1');
@@ -689,33 +924,126 @@ h3.appendChild(t3);
 document.body.appendChild(h3);
 divlose2.appendChild(h3);
 
-if (window.screen.width <= 400 && window.screen.height <= 820){
-divlose2.style.marginTop= "50%";
+var divlose4= document.getElementById('divlose4');
+var b= document.createElement("H3");
+var t4 = document.createTextNode("For more information about the life cycle and growth rate of the spotted lanternfly in the US see: ");
+b.appendChild(t4);
+document.body.appendChild(b);
+divlose4.appendChild(b);
+
+var t5= document.createTextNode("Strömbom and Pandey. 2021. Modeling the life cycle of the spotted lanternfly (Lycorma delicatula) with management implications. Mathematical Biosciences, Volume 340, 108670.")
+b.appendChild(t5);
+document.body.appendChild(b);
+divlose4.appendChild(b);
+
+divlose4.style.color='white';
+divlose4.style.display='block';
+
+////////////paid article//////////////
+
+   var t8= document.createTextNode("Official published article:");
+      divlose4.appendChild(t8);
+      divlose4.style.color='white';
+
+var r = document.createElement('a');
+var linkText1 = document.createTextNode("https://doi.org/10.1016/j.mbs.2021.108670");
+      r.appendChild(linkText1);
+      r.style.color='white';
+      r.title = "StrombomPandey2021preprint";
+      r.href = "https://doi.org/10.1016/j.mbs.2021.108670";
+      document.body.appendChild(r);
+     var divlose4= document.getElementById('divlose4');
+      divlose4.appendChild(r);
+
+   var t7= document.createTextNode("(requires subscription)");
+      divlose4.appendChild(t7);
+      divlose4.style.color='white';
+
+
+
+
+
+////////////free article//////////////
+var a = document.createElement('a');
+
+var linkText = document.createTextNode("Preprint Here");
+      a.appendChild(linkText);
+
+      a.style.color='white';
+      a.title = "StrombomPandey2021preprint";
+      a.href = "https://mail.google.com/mail/u/0?ui=2&ik=cef35aceac&attid=0.1&permmsgid=msg-f:1710798639403177661&th=17bdfa4c5fd916bd&view=att&disp=inline&realattid=f_ktiri1w50";
+      document.body.appendChild(a);
+     var divlose3= document.getElementById('divlose3');
+      divlose3.appendChild(a);
+
+   var t6= document.createTextNode("(free)");
+      divlose3.appendChild(t6);
+      divlose3.style.color='white';
+
+////////organized textnodes///////////////
+if (window.screen.width <= 500 && window.screen.height <= 820){
+divlose2.style.marginTop= "20%";
 divlose2.style.marginLeft="35%";
-divlose1.style.marginTop= "35%";
+
+divlose3.style.marginTop="30%";
+divlose3.style.marginLeft="35%";
+divlose3.style.fontSize='x-large';
+
+divlose1.style.marginTop= "0%";
 divlose1.style.marginLeft = "20%";
+
+divlose4.style.marginLeft='10%';
+divlose4.style.marginTop='10%';
+divlose4.style.marginRight='10%';
+
 } else {
-divlose2.style.marginTop= "15%";
-divlose2.style.marginLeft="35%";
-divlose1.style.marginTop= "10%";
+divlose2.style.marginTop= "8%";
+divlose2.style.marginLeft="40%";
+
+divlose3.style.marginTop="22%";
+divlose3.style.marginLeft="35%";
+divlose3.style.marginRight="35%";
+divlose3.style.fontSize='x-large';
+
+divlose1.style.fontSize='14px';
+divlose1.style.marginTop= "0%";
 divlose1.style.marginLeft = "25%";
+
+divlose4.style.marginLeft='10%';
+divlose4.style.marginTop='10%';
+divlose4.style.marginRight='10%';
+
 }
 
+//display ending texts
 
 divlose1.style.zIndex = "3";
 divlose1.style.color = "red";
 divlose2.style.zIndex = "3";
+divlose3.style.zIndex = "3";
 divlose1.style.display='block';
 divlose2.style.display='block';
+divlose3.style.display='block';
 document.getElementById('bigBug').style.display='block';
 
 
 }
 
+function credits(){
+
+    var logo= document.getElementById('logo');
+
+logo.style.display="block";
+
+}
+
+
+
+
 //get random X values for images
 function randomX(){
-if (window.screen.width <= 400 && window.screen.height <= 820){
-	  var randomX = Math.floor(Math.random()*((window.screen.availWidth*2)- (window.innerWidth/6)));
+if (window.screen.width <= 500 && window.screen.height <= 820){
+	  var randomX = Math.floor(Math.random()*(window.screen.availWidth*2));
 } else {
 var randomX = Math.floor(Math.random()*(window.innerWidth-(window.innerWidth/8)));
 }
@@ -725,12 +1053,11 @@ return randomX;
 
 //get random Y values for images
 function randomY(){
-if (window.screen.width <= 400 && window.screen.height <= 820){
-      var bugTest= document.getElementById('saveForm1');
-	  var randomY = Math.floor(Math.random()*((window.screen.availHeight*2)-(window.innerWidth/6)));
+if (window.screen.width <= 500 && window.screen.height <= 820){
 
+	  var randomY = Math.floor(Math.random()*((window.screen.availHeight*2)));
 } else{
-	  var randomY = Math.floor(Math.random()*(window.innerHeight-(window.innerWidth/8)));
+	  var randomY = Math.floor(Math.random()*(window.innerHeight-(window.innerWidth/9)));
 	  }
     return randomY;
 }
@@ -1046,6 +1373,356 @@ function doThing44(){
 
 function doThing45(){
    document.getElementById('saveForm45').style.display='none';
+   numBugs--;
+   console.log(numBugs);
+   document.getElementById("file").value -= 3;
+}
+
+function doThing46(){
+   document.getElementById('saveForm46').style.display='none';
+   numBugs--;
+   console.log(numBugs);
+   document.getElementById("file").value -= 3;
+}
+
+function doThing47(){
+   document.getElementById('saveForm47').style.display='none';
+   numBugs--;
+   console.log(numBugs);
+   document.getElementById("file").value -= 3;
+}
+
+function doThing48(){
+   document.getElementById('saveForm48').style.display='none';
+   numBugs--;
+   console.log(numBugs);
+   document.getElementById("file").value -= 3;
+}
+
+function doThing49(){
+   document.getElementById('saveForm49').style.display='none';
+   numBugs--;
+   console.log(numBugs);
+   document.getElementById("file").value -= 3;
+}
+
+function doThing50(){
+   document.getElementById('saveForm50').style.display='none';
+   numBugs--;
+   console.log(numBugs);
+   document.getElementById("file").value -= 3;
+}
+
+function doThing51(){
+   document.getElementById('saveForm51').style.display='none';
+   numBugs--;
+   console.log(numBugs);
+   document.getElementById("file").value -= 3;
+}
+
+function doThing52(){
+   document.getElementById('saveForm52').style.display='none';
+   numBugs--;
+   console.log(numBugs);
+   document.getElementById("file").value -= 2;
+}
+
+function doThing53(){
+   document.getElementById('saveForm53').style.display='none';
+   numBugs--;
+   console.log(numBugs);
+   document.getElementById("file").value -= 3;
+}
+
+function doThing54(){
+   document.getElementById('saveForm54').style.display='none';
+   numBugs--;
+   console.log(numBugs);
+   document.getElementById("file").value -= 2;
+}
+
+function doThing55(){
+   document.getElementById('saveForm55').style.display='none';
+   numBugs--;
+   console.log(numBugs);
+   document.getElementById("file").value -= 3;
+}
+
+function doThing56(){
+   document.getElementById('saveForm56').style.display='none';
+   numBugs--;
+   console.log(numBugs);
+   document.getElementById("file").value -= 3;
+}
+
+function doThing57(){
+   document.getElementById('saveForm57').style.display='none';
+   numBugs--;
+   console.log(numBugs);
+   document.getElementById("file").value -= 2;
+}
+
+function doThing58(){
+   document.getElementById('saveForm58').style.display='none';
+   numBugs--;
+   console.log(numBugs);
+   document.getElementById("file").value -= 3;
+}
+
+function doThing59(){
+   document.getElementById('saveForm59').style.display='none';
+   numBugs--;
+   console.log(numBugs);
+   document.getElementById("file").value -= 2;
+}
+
+function doThing60(){
+   document.getElementById('saveForm60').style.display='none';
+   numBugs--;
+   console.log(numBugs);
+   document.getElementById("file").value -= 3;
+}
+
+function doThing61(){
+   document.getElementById('saveForm61').style.display='none';
+   numBugs--;
+   console.log(numBugs);
+   document.getElementById("file").value -= 3;
+}
+
+function doThing62(){
+   document.getElementById('saveForm62').style.display='none';
+   numBugs--;
+   console.log(numBugs);
+   document.getElementById("file").value -= 3;
+}
+
+function doThing63(){
+   document.getElementById('saveForm63').style.display='none';
+   numBugs--;
+   console.log(numBugs);
+   document.getElementById("file").value -= 3;
+}
+
+function doThing64(){
+   document.getElementById('saveForm64').style.display='none';
+   numBugs--;
+   console.log(numBugs);
+   document.getElementById("file").value -= 3;
+}
+
+function doThing65(){
+   document.getElementById('saveForm65').style.display='none';
+   numBugs--;
+   console.log(numBugs);
+   document.getElementById("file").value -= 3;
+}
+
+function doThing66(){
+   document.getElementById('saveForm66').style.display='none';
+   numBugs--;
+   console.log(numBugs);
+   document.getElementById("file").value -= 3;
+}
+
+function doThing67(){
+   document.getElementById('saveForm67').style.display='none';
+   numBugs--;
+   console.log(numBugs);
+   document.getElementById("file").value -= 2;
+}
+
+function doThing68(){
+   document.getElementById('saveForm68').style.display='none';
+   numBugs--;
+   console.log(numBugs);
+   document.getElementById("file").value -= 3;
+}
+
+function doThing69(){
+   document.getElementById('saveForm69').style.display='none';
+   numBugs--;
+   console.log(numBugs);
+   document.getElementById("file").value -= 2;
+}
+
+function doThing70(){
+   document.getElementById('saveForm70').style.display='none';
+   numBugs--;
+   console.log(numBugs);
+   document.getElementById("file").value -= 3;
+}
+
+function doThing71(){
+   document.getElementById('saveForm71').style.display='none';
+   numBugs--;
+   console.log(numBugs);
+   document.getElementById("file").value -= 3;
+}
+
+function doThing72(){
+   document.getElementById('saveForm72').style.display='none';
+   numBugs--;
+   console.log(numBugs);
+   document.getElementById("file").value -= 3;
+}
+
+function doThing73(){
+   document.getElementById('saveForm73').style.display='none';
+   numBugs--;
+   console.log(numBugs);
+   document.getElementById("file").value -= 3;
+}
+
+function doThing74(){
+   document.getElementById('saveForm74').style.display='none';
+   numBugs--;
+   console.log(numBugs);
+   document.getElementById("file").value -= 3;
+}
+
+function doThing75(){
+   document.getElementById('saveForm75').style.display='none';
+   numBugs--;
+   console.log(numBugs);
+   document.getElementById("file").value -= 3;
+}
+
+function doThing76(){
+   document.getElementById('saveForm76').style.display='none';
+   numBugs--;
+   console.log(numBugs);
+   document.getElementById("file").value -= 3;
+}
+
+function doThing77(){
+   document.getElementById('saveForm77').style.display='none';
+   numBugs--;
+   console.log(numBugs);
+   document.getElementById("file").value -= 2;
+}
+
+function doThing78(){
+   document.getElementById('saveForm78').style.display='none';
+   numBugs--;
+   console.log(numBugs);
+   document.getElementById("file").value -= 3;
+}
+
+function doThing79(){
+   document.getElementById('saveForm79').style.display='none';
+   numBugs--;
+   console.log(numBugs);
+   document.getElementById("file").value -= 2;
+}
+
+function doThing80(){
+   document.getElementById('saveForm80').style.display='none';
+   numBugs--;
+   console.log(numBugs);
+   document.getElementById("file").value -= 3;
+}
+
+function doThing81(){
+   document.getElementById('saveForm81').style.display='none';
+   numBugs--;
+   console.log(numBugs);
+   document.getElementById("file").value -= 3;
+}
+
+function doThing82(){
+   document.getElementById('saveForm82').style.display='none';
+   numBugs--;
+   console.log(numBugs);
+   document.getElementById("file").value -= 3;
+}
+
+function doThing83(){
+   document.getElementById('saveForm83').style.display='none';
+   numBugs--;
+   console.log(numBugs);
+   document.getElementById("file").value -= 3;
+}
+
+function doThing84(){
+   document.getElementById('saveForm84').style.display='none';
+   numBugs--;
+   console.log(numBugs);
+   document.getElementById("file").value -= 3;
+}
+
+function doThing85(){
+   document.getElementById('saveForm85').style.display='none';
+   numBugs--;
+   console.log(numBugs);
+   document.getElementById("file").value -= 3;
+}
+
+function doThing91(){
+   document.getElementById('saveForm91').style.display='none';
+   numBugs--;
+   console.log(numBugs);
+   document.getElementById("file").value -= 3;
+}
+
+function doThing92(){
+   document.getElementById('saveForm92').style.display='none';
+   numBugs--;
+   console.log(numBugs);
+   document.getElementById("file").value -= 3;
+}
+
+function doThing93(){
+   document.getElementById('saveForm93').style.display='none';
+   numBugs--;
+   console.log(numBugs);
+   document.getElementById("file").value -= 3;
+}
+
+function doThing94(){
+   document.getElementById('saveForm94').style.display='none';
+   numBugs--;
+   console.log(numBugs);
+   document.getElementById("file").value -= 3;
+}
+
+function doThing95(){
+   document.getElementById('saveForm95').style.display='none';
+   numBugs--;
+   console.log(numBugs);
+   document.getElementById("file").value -= 3;
+}
+
+function doThing96(){
+   document.getElementById('saveForm96').style.display='none';
+   numBugs--;
+   console.log(numBugs);
+   document.getElementById("file").value -= 3;
+}
+
+function doThing97(){
+   document.getElementById('saveForm97').style.display='none';
+   numBugs--;
+   console.log(numBugs);
+   document.getElementById("file").value -= 3;
+}
+
+function doThing98(){
+   document.getElementById('saveForm98').style.display='none';
+   numBugs--;
+   console.log(numBugs);
+   document.getElementById("file").value -= 3;
+}
+
+function doThing99(){
+   document.getElementById('saveForm99').style.display='none';
+   numBugs--;
+   console.log(numBugs);
+   document.getElementById("file").value -= 3;
+}
+
+function doThing100(){
+   document.getElementById('saveForm100').style.display='none';
    numBugs--;
    console.log(numBugs);
    document.getElementById("file").value -= 3;
