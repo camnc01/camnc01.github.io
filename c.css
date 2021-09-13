@@ -86,13 +86,14 @@ position: fixed;
 }
 
 #info1{
-margin-top: 0px;
-margin-left:18%;
+    bottom: 0px;
+    float: right;
   width: 100%;
+  height:auto;
   padding: 20px;
   box-sizing: border-box;
 display: block;
-text-align: center;
+position: fixed;
 z-index:0;
 font-size: 11px;
 }
