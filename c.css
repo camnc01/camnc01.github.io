@@ -86,12 +86,10 @@ position: fixed;
 }
 
 #info1{
-    bottom: 0px;
-    float: right;
-  width: 100%;
-  height:auto;
-  padding: 20px;
-  box-sizing: border-box;
+bottom: 0px;
+float: right;
+width: 100%;
+padding: 20px;
 display: block;
 position: fixed;
 z-index:0;
