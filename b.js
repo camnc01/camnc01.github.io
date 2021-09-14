@@ -1001,8 +1001,8 @@ divlose2.style.marginTop= "8%";
 divlose2.style.marginLeft="40%";
 
 divlose3.style.marginTop="22%";
-divlose3.style.marginLeft="35%";
-divlose3.style.marginRight="35%";
+divlose3.style.marginLeft="40%";
+divlose3.style.marginRight="40%";
 divlose3.style.fontSize='x-large';
 
 divlose1.style.fontSize='14px';
