@@ -971,7 +971,7 @@ var linkText = document.createTextNode("Preprint Here");
 
       a.style.color='white';
       a.title = "StrombomPandey2021preprint";
-      a.href = "https://mail.google.com/mail/u/0?ui=2&ik=cef35aceac&attid=0.1&permmsgid=msg-f:1710798639403177661&th=17bdfa4c5fd916bd&view=att&disp=inline&realattid=f_ktiri1w50";
+      a.href = "https://drive.google.com/file/d/1EJUm6SE-i3y54pdI7ta9YcdnXme5_4Ld/view?usp=sharing";
       document.body.appendChild(a);
      var divlose3= document.getElementById('divlose3');
       divlose3.appendChild(a);
