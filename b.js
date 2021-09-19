@@ -12,14 +12,38 @@ var finalTake=false;
 var eas=false;
 var mediu=false;
 var har=false;
+var mobile=false;
 
 draw();
 
 var inputs=document.getElementsByTagName('input');
 for(i=0;i<inputs.length;i++){
     inputs[i].disabled=false;
+}
+
+//check for mobile device
+function isMob(){
+
+if( navigator.userAgent.match(/Android/i)
+ || navigator.userAgent.match(/webOS/i)
+ || navigator.userAgent.match(/iPhone/i)
+ || navigator.userAgent.match(/iPad/i)
+ || navigator.userAgent.match(/iPod/i)
+ || navigator.userAgent.match(/BlackBerry/i)
+ || navigator.userAgent.match(/Windows Phone/i)
+){
+
+var elem= document.getElementById("welcome");
+document.getElementById('head1').style.fontSize="35px";
+document.getElementById('head2').style.fontSize="15px";
+
+mobile=true;
+} else {
+mobile=false;
+}
 
 }
+
 
 
 function number(){
@@ -28,6 +52,8 @@ return numBugs;
 
 
 function draw(){
+
+isMob();
 
   //waiting for the first click
 if (eas==true || mediu==true || har==true){
@@ -159,6 +185,21 @@ setTimeout(loadDelayed(), 2000);
 function loadDelayed(){
 if (startGame==true && take1==true) {
 
+
+if (mobile==true){
+if (eas==true){
+setTimeout(happen1, 2000);
+}
+if (mediu==true){
+setTimeout(happen1, 1500);
+}
+if (har==true){
+setTimeout(happen1, 1000);
+}
+
+}
+
+if (mobile==false){
 if (eas==true){
 setTimeout(happen1, 2500);
 }
@@ -173,9 +214,31 @@ setTimeout(happen1, 1700);
 
 }
 
+}
+
 function trackNum(){
 
 if (eas==true){
+
+if (mobile==true){
+if (startGame==true && numBugs==0 && finalTake==false){
+win();
+gameOngoing=false;
+} else if (numBugs>=65){
+lose();
+} else if (startGame==true && take1==false && take2==true && gameOngoing==true) {
+setTimeout(happen2, 2500);
+} else if (startGame==true && take2==false && take3==true && gameOngoing==true){
+setTimeout(happen3, 2500);
+} else if (startGame==true && take2==false && take3==false && take4==true && gameOngoing==true){
+setTimeout(happen4, 1500);
+} else if (startGame==true && take2==false && take3==false && take4==false && take5==true && gameOngoing==true){
+setTimeout(happen5, 3500);
+} else if (startGame==true && take2==false && take3==false && take4==false && take5==false && finalTake==true && gameOngoing==true){
+setTimeout(happen6, 50);
+console.log(numBugs);
+}
+} else if (mobile==false){
 if (startGame==true && numBugs==0 && finalTake==false){
 win();
 gameOngoing=false;
@@ -194,8 +257,11 @@ setTimeout(happen6, 50);
 console.log(numBugs);
 }
 }
+}
 
 if (mediu==true){
+
+if (mobile==true){
 if (startGame==true && numBugs==0 && finalTake==false){
 win();
 gameOngoing=false;
@@ -213,9 +279,7 @@ setTimeout(happen5, 4800);
 setTimeout(happen6, 50);
 console.log(numBugs);
 }
-}
-
-if (har==true){
+} else if (mobile==false){
 if (startGame==true && numBugs==0 && finalTake==false){
 win();
 gameOngoing=false;
@@ -224,7 +288,48 @@ lose();
 } else if (startGame==true && take1==false && take2==true && gameOngoing==true) {
 setTimeout(happen2, 2500);
 } else if (startGame==true && take2==false && take3==true && gameOngoing==true){
-setTimeout(happen3, 6500);
+setTimeout(happen3, 2500);
+} else if (startGame==true && take2==false && take3==false && take4==true && gameOngoing==true){
+setTimeout(happen4, 5500);
+} else if (startGame==true && take2==false && take3==false && take4==false && take5==true && gameOngoing==true){
+setTimeout(happen5, 4800);
+} else if (startGame==true && take2==false && take3==false && take4==false && take5==false && finalTake==true && gameOngoing==true){
+setTimeout(happen6, 50);
+console.log(numBugs);
+}
+}
+}
+
+if (har==true){
+
+if (mobile==true){
+if (startGame==true && numBugs==0 && finalTake==false){
+win();
+gameOngoing=false;
+} else if (numBugs>=65){
+lose();
+} else if (startGame==true && take1==false && take2==true && gameOngoing==true) {
+setTimeout(happen2, 3500);
+} else if (startGame==true && take2==false && take3==true && gameOngoing==true){
+setTimeout(happen3, 3500);
+} else if (startGame==true && take2==false && take3==false && take4==true && gameOngoing==true){
+setTimeout(happen4, 1400);
+} else if (startGame==true && take2==false && take3==false && take4==false && take5==true && gameOngoing==true){
+setTimeout(happen5, 2500);
+} else if (startGame==true && take2==false && take3==false && take4==false && take5==false && finalTake==true && gameOngoing==true){
+setTimeout(happen6, 50);
+console.log(numBugs);
+}
+} else if (mobile==false){
+if (startGame==true && numBugs==0 && finalTake==false){
+win();
+gameOngoing=false;
+} else if (numBugs>=65){
+lose();
+} else if (startGame==true && take1==false && take2==true && gameOngoing==true) {
+setTimeout(happen2, 2500);
+} else if (startGame==true && take2==false && take3==true && gameOngoing==true){
+setTimeout(happen3, 6000);
 } else if (startGame==true && take2==false && take3==false && take4==true && gameOngoing==true){
 setTimeout(happen4, 4000);
 } else if (startGame==true && take2==false && take3==false && take4==false && take5==true && gameOngoing==true){
@@ -232,6 +337,7 @@ setTimeout(happen5, 6500);
 } else if (startGame==true && take2==false && take3==false && take4==false && take5==false && finalTake==true && gameOngoing==true){
 setTimeout(happen6, 50);
 console.log(numBugs);
+}
 }
 }
 
@@ -872,11 +978,12 @@ divlose1.appendChild(h2);
 divlose2.appendChild(h3);
 
 //organize text nodes
-if (window.screen.width <= 500 && window.screen.height <= 820){
-divlose2.style.marginTop= "10%";
-divlose2.style.marginLeft="40%";
+if (mobile==true){
+divlose2.style.marginTop= "40%";
+divlose2.style.marginLeft="25%";
 divlose1.style.marginTop= "0%";
-divlose1.style.marginLeft = "25%";
+divlose1.style.marginLeft = "2%";
+divlose1.style.marginRight = "2%";
 } else {
 divlose2.style.marginTop= "10%";
 divlose2.style.marginLeft="45%";
@@ -981,28 +1088,32 @@ var linkText = document.createTextNode("Preprint Here");
       divlose3.style.color='white';
 
 ////////organized textnodes///////////////
-if (window.screen.width <= 500 && window.screen.height <= 820){
-divlose2.style.marginTop= "20%";
+if (mobile==true){
+divlose2.style.marginTop= "12%";
 divlose2.style.marginLeft="35%";
+divlose2.style.fontSize='x-small';
 
-divlose3.style.marginTop="30%";
+divlose3.style.marginTop="48%";
 divlose3.style.marginLeft="35%";
-divlose3.style.fontSize='x-large';
+divlose3.style.fontSize='small';
 
 divlose1.style.marginTop= "0%";
-divlose1.style.marginLeft = "20%";
+divlose1.style.marginLeft = "10%";
+divlose1.style.fontSize='10px';
 
-divlose4.style.marginLeft='10%';
-divlose4.style.marginTop='10%';
-divlose4.style.marginRight='10%';
+divlose4.style.marginLeft='0%';
+divlose4.style.marginTop='19%';
+divlose4.style.marginRight='0%';
+divlose4.style.fontSize='9px';
+
 
 } else {
-divlose2.style.marginTop= "8%";
+divlose2.style.marginTop= "5%";
 divlose2.style.marginLeft="40%";
 
 divlose3.style.marginTop="22%";
-divlose3.style.marginLeft="40%";
-divlose3.style.marginRight="40%";
+divlose3.style.marginLeft="35%";
+divlose3.style.marginRight="35%";
 divlose3.style.fontSize='x-large';
 
 divlose1.style.fontSize='14px';
@@ -1033,7 +1144,14 @@ function credits(){
 
     var logo= document.getElementById('logo');
 
+if(mobile==true){
+logo.style.marginTop="100%";
+}
+
+
 logo.style.display="block";
+
+
 
 }
 
@@ -1042,8 +1160,8 @@ logo.style.display="block";
 
 //get random X values for images
 function randomX(){
-if (window.screen.width <= 500 && window.screen.height <= 820){
-	  var randomX = Math.floor(Math.random()*(window.screen.availWidth*2));
+if (mobile==true){
+	  var randomX = Math.floor(Math.random()*(window.screen.availWidth-100));
 } else {
 var randomX = Math.floor(Math.random()*(window.innerWidth-(window.innerWidth/8)));
 }
@@ -1053,9 +1171,8 @@ return randomX;
 
 //get random Y values for images
 function randomY(){
-if (window.screen.width <= 500 && window.screen.height <= 820){
-
-	  var randomY = Math.floor(Math.random()*((window.screen.availHeight*2)));
+if (mobile==true){
+	  var randomY = Math.floor(Math.random()*((window.screen.availHeight-100)));
 } else{
 	  var randomY = Math.floor(Math.random()*(window.innerHeight-(window.innerWidth/9)));
 	  }

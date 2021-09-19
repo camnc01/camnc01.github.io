@@ -86,11 +86,10 @@ position: fixed;
 
 #info1{
 bottom: 0px;
-float: right;
+position:fixed;
 width: 100%;
-padding: 20px;
 display: block;
-position: fixed;
+float:left;
 z-index:0;
 font-size: 11px;
 }
