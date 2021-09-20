@@ -1093,7 +1093,7 @@ divlose2.style.marginTop= "12%";
 divlose2.style.marginLeft="35%";
 divlose2.style.fontSize='x-small';
 
-divlose3.style.marginTop="48%";
+divlose3.style.marginTop="50%";
 divlose3.style.marginLeft="35%";
 divlose3.style.fontSize='small';
 
@@ -1161,9 +1161,9 @@ logo.style.display="block";
 //get random X values for images
 function randomX(){
 if (mobile==true){
-	  var randomX = Math.floor(Math.random()*(window.screen.availWidth-100));
+	  var randomX = Math.floor(Math.random()*(window.screen.availWidth-(window.innerWidth/6)));
 } else {
-var randomX = Math.floor(Math.random()*(window.innerWidth-(window.innerWidth/8)));
+var randomX = Math.floor(Math.random()*(window.innerWidth-(window.innerWidth/6)));
 }
 return randomX;
 
@@ -1172,9 +1172,9 @@ return randomX;
 //get random Y values for images
 function randomY(){
 if (mobile==true){
-	  var randomY = Math.floor(Math.random()*((window.screen.availHeight-100)));
+	  var randomY = Math.floor(Math.random()*((window.screen.availHeight-(window.innerHeight/5))));
 } else{
-	  var randomY = Math.floor(Math.random()*(window.innerHeight-(window.innerWidth/9)));
+	  var randomY = Math.floor(Math.random()*(window.innerHeight-(window.innerHeight/6)));
 	  }
     return randomY;
 }
