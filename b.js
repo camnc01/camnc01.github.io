@@ -13,6 +13,7 @@ var eas=false;
 var mediu=false;
 var har=false;
 var mobile=false;
+var timeUp=false;
 
 draw();
 
@@ -927,17 +928,10 @@ var inputs=document.getElementsByTagName('input');
 document.getElementById("file").value = 100;
 for(i=0;i<inputs.length;i++){
     inputs[i].style.display='block';
-    numBugs=100;
-var h1 = document.createElement("H1");              // Create a <h1> element
-var t1 = document.createTextNode("Time's Up!");     // Create a text node
-h1.appendChild(t1);                                   // Append the text to <h1>
-document.body.appendChild(h1);
-var divlose1= document.getElementById('divlose1');
-h1.style.color = "red";
-divlose1.appendChild(h1);
-
-lose();
 }
+ numBugs=100;
+timeUp=true;
+lose();
 } else if (numBugs==0){
 win();
 }
@@ -1014,8 +1008,8 @@ for(i=0;i<inputs.length;i++){
 
 
 credits();
-
-
+console.log(timeUp);
+if (timeUp==false){
 //text that the bugs are out of control
 var h = document.createElement("H1");              // Create a <h1> element
 var t = document.createTextNode("The Population Has Gotten Out of Control");     // Create a text node
@@ -1024,6 +1018,45 @@ document.body.appendChild(h);
 var divlose1= document.getElementById('divlose1');
 divlose1.appendChild(h);
 
+if (mobile==true){
+divlose1.style.marginTop= "0%";
+divlose1.style.marginLeft = "10%";
+divlose1.style.fontSize='10px';
+
+} else {
+divlose1.style.fontSize='14px';
+divlose1.style.marginTop= "0%";
+divlose1.style.marginLeft = "30%";
+}
+
+divlose1.style.zIndex = "3";
+divlose1.style.color = "red";
+divlose1.style.display='block';
+}
+if (timeUp==true){
+//text that the bugs are out of control
+var h = document.createElement("H1");              // Create a <h1> element
+var t = document.createTextNode("Time's Up!");     // Create a text node
+h.appendChild(t);                                   // Append the text to <h1>
+document.body.appendChild(h);
+var divlose1= document.getElementById('divlose1');
+divlose1.appendChild(h);
+
+if (mobile==true){
+divlose1.style.marginTop= "0%";
+divlose1.style.marginLeft = "30%";
+divlose1.style.fontSize='10px';
+
+} else {
+divlose1.style.fontSize='14px';
+divlose1.style.marginTop= "0%";
+divlose1.style.marginLeft = "40%";
+}
+
+divlose1.style.zIndex = "3";
+divlose1.style.color = "red";
+divlose1.style.display='block';
+}
 
 var h3 = document.createElement("H3");
 var t3 = document.createTextNode("refresh the page to try again");
@@ -1097,42 +1130,44 @@ divlose3.style.marginTop="50%";
 divlose3.style.marginLeft="35%";
 divlose3.style.fontSize='small';
 
-divlose1.style.marginTop= "0%";
-divlose1.style.marginLeft = "10%";
-divlose1.style.fontSize='10px';
-
 divlose4.style.marginLeft='0%';
 divlose4.style.marginTop='19%';
 divlose4.style.marginRight='0%';
 divlose4.style.fontSize='9px';
 
 
-} else {
+} else if (window.innerWidth > 900) {
 divlose2.style.marginTop= "5%";
 divlose2.style.marginLeft="40%";
 
-divlose3.style.marginTop="22%";
-divlose3.style.marginLeft="35%";
-divlose3.style.marginRight="35%";
+divlose3.style.marginTop="50%";
+divlose3.style.marginLeft="30%";
+divlose3.style.marginRight="30%";
 divlose3.style.fontSize='x-large';
 
-divlose1.style.fontSize='14px';
-divlose1.style.marginTop= "0%";
-divlose1.style.marginLeft = "30%";
+divlose4.style.marginLeft='0%';
+divlose4.style.marginTop='40%';
+console.log(innerWidth);
+}else if(window.innerWidth <=900) {
+divlose2.style.marginTop= "5%";
+divlose2.style.marginLeft="40%";
 
-divlose4.style.marginLeft='10%';
-divlose4.style.marginTop='10%';
-divlose4.style.marginRight='10%';
+divlose3.style.marginTop="70%";
+divlose3.style.marginLeft="30%";
+divlose3.style.marginRight="30%";
+divlose3.style.fontSize='x-large';
+
+divlose4.style.marginLeft='0%';
+divlose4.style.marginTop='55%';
 
 }
 
+
 //display ending texts
 
-divlose1.style.zIndex = "3";
-divlose1.style.color = "red";
+
 divlose2.style.zIndex = "3";
 divlose3.style.zIndex = "3";
-divlose1.style.display='block';
 divlose2.style.display='block';
 divlose3.style.display='block';
 document.getElementById('bigBug').style.display='block';
@@ -1146,8 +1181,11 @@ function credits(){
 
 if(mobile==true){
 logo.style.marginTop="100%";
+} else if (window.innerWidth <= 900){
+logo.style.marginTop="40%";
+} else if (window.innerWidth > 900) {
+logo.style.marginTop="20%";
 }
-
 
 logo.style.display="block";
 
