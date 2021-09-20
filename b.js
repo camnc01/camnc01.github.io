@@ -1172,7 +1172,7 @@ return randomX;
 //get random Y values for images
 function randomY(){
 if (mobile==true){
-	  var randomY = Math.floor(Math.random()*((window.screen.availHeight-(window.innerHeight/5))));
+	  var randomY = Math.floor(Math.random()*((window.screen.availHeight-(window.innerHeight/3))));
 } else{
 	  var randomY = Math.floor(Math.random()*(window.innerHeight-(window.innerHeight/6)));
 	  }
