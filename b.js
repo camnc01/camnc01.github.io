@@ -189,7 +189,7 @@ if (startGame==true && take1==true) {
 
 if (mobile==true){
 if (eas==true){
-setTimeout(happen1, 2000);
+setTimeout(happen1, 1500);
 }
 if (mediu==true){
 setTimeout(happen1, 1500);
@@ -246,7 +246,7 @@ gameOngoing=false;
 } else if (numBugs>=65){
 lose();
 } else if (startGame==true && take1==false && take2==true && gameOngoing==true) {
-setTimeout(happen2, 4500);
+setTimeout(happen2, 3500);
 } else if (startGame==true && take2==false && take3==true && gameOngoing==true){
 setTimeout(happen3, 3500);
 } else if (startGame==true && take2==false && take3==false && take4==true && gameOngoing==true){
@@ -271,9 +271,9 @@ lose();
 } else if (startGame==true && take1==false && take2==true && gameOngoing==true) {
 setTimeout(happen2, 2500);
 } else if (startGame==true && take2==false && take3==true && gameOngoing==true){
-setTimeout(happen3, 4500);
+setTimeout(happen3, 3500);
 } else if (startGame==true && take2==false && take3==false && take4==true && gameOngoing==true){
-setTimeout(happen4, 7500);
+setTimeout(happen4, 5500);
 } else if (startGame==true && take2==false && take3==false && take4==false && take5==true && gameOngoing==true){
 setTimeout(happen5, 4800);
 } else if (startGame==true && take2==false && take3==false && take4==false && take5==false && finalTake==true && gameOngoing==true){
@@ -310,9 +310,9 @@ gameOngoing=false;
 } else if (numBugs>=65){
 lose();
 } else if (startGame==true && take1==false && take2==true && gameOngoing==true) {
-setTimeout(happen2, 3500);
+setTimeout(happen2, 2500);
 } else if (startGame==true && take2==false && take3==true && gameOngoing==true){
-setTimeout(happen3, 3500);
+setTimeout(happen3, 2500);
 } else if (startGame==true && take2==false && take3==false && take4==true && gameOngoing==true){
 setTimeout(happen4, 1400);
 } else if (startGame==true && take2==false && take3==false && take4==false && take5==true && gameOngoing==true){
@@ -1044,7 +1044,7 @@ divlose1.appendChild(h);
 
 if (mobile==true){
 divlose1.style.marginTop= "0%";
-divlose1.style.marginLeft = "30%";
+divlose1.style.marginLeft = "40%";
 divlose1.style.fontSize='10px';
 
 } else {
