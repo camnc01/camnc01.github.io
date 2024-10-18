@@ -142,7 +142,7 @@ elem2.parentNode.removeChild(elem2);
 //call to load initial 5 images after DOM loads
 initImgs();
     var img1 = document.createElement("img");
-    img1.src = "https://lh3.googleusercontent.com/pw/AM-JKLWF3IRRV3Xgv2uywUMwHbZN_8iYrSFtoXMH2zQreuiQJrvdALwQtjfyZgPVp4Qua-q_IDGRXibH9N2ZvhHjwH1aGV4C49EwYLUqNxGPCEMOkmw3CmXcsdkd3l7kiu0FlKMAs-Eh9h2VvnHJrkZ2HuS3=w1354-h1230-no?authuser=0";
+    img1.src = "https://github.com/lafcollanternflies/LafColLanternflies.github.io/blob/main/bug.png";
     img1.width = window.innerWidth;
     img1.height = window.innerHeight;
     img1.zIndex=0;
