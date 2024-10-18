@@ -142,7 +142,7 @@ elem2.parentNode.removeChild(elem2);
 //call to load initial 5 images after DOM loads
 initImgs();
     var img1 = document.createElement("img");
-    img1.src = "https://github.com/lafcollanternflies/LafColLanternflies.github.io/blob/main/bug.png";
+    img1.src = "https://raw.githubusercontent.com/lafcollanternflies/LafColLanternflies.github.io/main/background.jpg";
     img1.width = window.innerWidth;
     img1.height = window.innerHeight;
     img1.zIndex=0;
